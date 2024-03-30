@@ -1,23 +1,11 @@
-@charset "UTF-8";
-/* Arrumar a simetria do navbar usando padding, pois os icones não tem o mesmo comprimento */
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.SwipeApp {
+  /* .screen footer .fa-reorder {
+    transform: rotate(90deg);
+  } */
+  /* Actions */
+  /* icon size and colors */
 }
-
-body {
-  height: 100vh;
-  width: 100vw;
-  font-family: "Roboto", sans-serif;
-  background: rgba(100, 149, 237, 0.168627451);
-  overflow: hidden;
-  display: flex;
-  align-content: center;
-}
-
-.smartphone {
+.SwipeApp .smartphone {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -27,8 +15,7 @@ body {
   height: clamp(580px, 98vh, 720px);
   border: 8px solid black;
 }
-
-.screen {
+.SwipeApp .screen {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,8 +26,7 @@ body {
   border: 2px solid rgba(0, 0, 0, 0.15);
   border-radius: 7px;
 }
-
-.topbar {
+.SwipeApp .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,17 +41,14 @@ body {
   border-radius: 7px 7px 0 0;
   font-family: monospace;
 }
-
-.topbar-left {
+.SwipeApp .topbar-left {
   display: flex;
   align-items: center;
 }
-
-.topbar-middle {
+.SwipeApp .topbar-middle {
   margin-left: 9px;
 }
-
-.topbar-middle::before {
+.SwipeApp .topbar-middle::before {
   content: "";
   background: black;
   width: 10px;
@@ -75,12 +58,10 @@ body {
   border-radius: 5px;
   position: absolute;
 }
-
-.clock {
+.SwipeApp .clock {
   padding-right: 9px;
 }
-
-.camera {
+.SwipeApp .camera {
   background: black;
   width: 54px;
   height: 10.2px;
@@ -88,8 +69,7 @@ body {
   top: 6.3px;
   border-radius: 0 0 20px 20px;
 }
-
-.camera::before {
+.SwipeApp .camera::before {
   content: "";
   position: absolute;
   width: 31.7px;
@@ -99,8 +79,7 @@ body {
   left: -13.7px;
   background: #838383;
 }
-
-.camera::after {
+.SwipeApp .camera::after {
   content: "";
   position: absolute;
   width: 31.7px;
@@ -110,8 +89,7 @@ body {
   left: 42.9px;
   background: #838383;
 }
-
-.camera-lens {
+.SwipeApp .camera-lens {
   background: black;
   width: 25px;
   height: 25px;
@@ -120,8 +98,7 @@ body {
   border-radius: 50%;
   position: relative;
 }
-
-.camera-lens::before {
+.SwipeApp .camera-lens::before {
   content: "";
   position: absolute;
   width: 13px;
@@ -131,8 +108,7 @@ body {
   left: 6px;
   background: #2c3c3c;
 }
-
-.camera-lens::after {
+.SwipeApp .camera-lens::after {
   content: "";
   position: absolute;
   width: 3px;
@@ -143,8 +119,7 @@ body {
   background: rgba(64, 86, 86, 0.6196078431);
   border-radius: 0 20px 20px 0;
 }
-
-.inner-lens {
+.SwipeApp .inner-lens {
   position: relative;
   width: 5px;
   height: 5px;
@@ -153,8 +128,7 @@ body {
   top: -20.8px;
   left: 28px;
 }
-
-.inner-lens::after {
+.SwipeApp .inner-lens::after {
   content: "";
   position: absolute;
   width: 1.8px;
@@ -165,12 +139,10 @@ body {
   background: rgba(0, 0, 0, 0.5215686275);
   border-radius: 50%;
 }
-
-.topbar-right {
+.SwipeApp .topbar-right {
   font-family: monospace;
 }
-
-.topbar-right::before {
+.SwipeApp .topbar-right::before {
   content: "";
   background: black;
   width: 10px;
@@ -180,8 +152,7 @@ body {
   border-radius: 5px;
   position: absolute;
 }
-
-.topbar-right::after {
+.SwipeApp .topbar-right::after {
   content: "";
   background: #e4edfb;
   width: 10px;
@@ -191,8 +162,7 @@ body {
   border-radius: 5px;
   position: absolute;
 }
-
-.screen footer {
+.SwipeApp .screen footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -204,11 +174,7 @@ body {
   color: white;
   font-size: 15px;
 }
-
-/* .screen footer .fa-reorder {
-  transform: rotate(90deg);
-} */
-.navbar {
+.SwipeApp .navbar {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
@@ -216,19 +182,16 @@ body {
   width: 100%;
   height: 45px;
 }
-
-.navbar i {
+.SwipeApp .navbar i {
   cursor: pointer;
 }
-
-.person {
+.SwipeApp .person {
   width: 99%;
   height: 100%;
   background: #d6d5d5;
   border-radius: 10px;
 }
-
-.photo {
+.SwipeApp .photo {
   margin: auto;
   height: 100%;
   background: url("https://i.pinimg.com/originals/55/91/80/5591809ff56c527ff1897828d2fb3290.jpg") center center/cover;
@@ -240,13 +203,19 @@ body {
   cursor: grab;
   transition: 300ms;
 }
-
-.photo.moving {
+.SwipeApp .photo.moving {
   transition: none;
   cursor: grabbing;
 }
-
-.photo.nope::after {
+.SwipeApp .fa-close svg {
+  width: 40px;
+  height: 40px;
+}
+.SwipeApp .fa-arrow-rotate-left svg {
+  width: 30px;
+  height: 30px;
+}
+.SwipeApp .photo.nope::after {
   content: "NOPE";
   color: #fe466d;
   border: 6px solid #fe466d;
@@ -260,8 +229,7 @@ body {
   right: 8%;
   transform: rotate(15deg);
 }
-
-.photo.super_like::after {
+.SwipeApp .photo.super_like::after {
   content: "SUPER LIKE";
   color: #08a4ef;
   border: 6px solid #08a4ef;
@@ -277,8 +245,7 @@ body {
   left: 24%;
   transform: rotate(-15deg);
 }
-
-.photo.like::after {
+.SwipeApp .photo.like::after {
   content: "LIKE";
   color: #1be4a1;
   border: 6px solid #1be4a1;
@@ -292,73 +259,60 @@ body {
   left: 8%;
   transform: rotate(-15deg);
 }
-
-.personal {
+.SwipeApp .personal {
   padding: 15px;
   width: 100%;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.41) 24%);
   border-radius: 10px;
 }
-
-.name-age {
+.SwipeApp .name-age {
   display: flex;
   align-items: baseline;
   margin-bottom: 6px;
 }
-
-.name {
+.SwipeApp .name {
   font-size: 2rem;
   font-weight: 500;
 }
-
-.age {
+.SwipeApp .age {
   font-size: 1.6rem;
   margin-left: 10px;
   font-weight: 400;
 }
-
-.data {
+.SwipeApp .data {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.about {
+.SwipeApp .about {
   display: flex;
 }
-
-.about-icon,
-.about-text {
+.SwipeApp .about-icon,
+.SwipeApp .about-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
-
-.about-icon {
+.SwipeApp .about-icon {
   align-items: center;
 }
-
-.about-text {
+.SwipeApp .about-text {
   align-items: flex-start;
   margin-left: 6px;
 }
-
-.about-icon i,
-.about-text p {
+.SwipeApp .about-icon i,
+.SwipeApp .about-text p {
   padding: 4px 0;
 }
-
-/* Actions */
-.commands {
+.SwipeApp .commands {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 100px;
 }
-
-.command {
+.SwipeApp .command {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,65 +325,62 @@ body {
   transition: 500ms ease;
   cursor: pointer;
 }
-
-.command i {
+.SwipeApp .command i {
   transition: 500ms ease;
 }
-
-.commands .command:nth-child(2n+1) {
+.SwipeApp .commands .command:nth-child(2n+1) {
   height: 48px;
   width: 48px;
   font-size: 1.5rem;
 }
-
-.command:hover {
+.SwipeApp .command:hover {
   transform: scale(1.1);
   color: #fff;
   box-shadow: 0 2px 6px 0 rgba(112, 125, 134, 0.33);
 }
-
-.command:hover i {
+.SwipeApp .command:hover i {
   transform: scale(1.15);
 }
-
-/* icon size and colors */
-.fa-circle-user,
-.fa-comment-dots {
+.SwipeApp .fa-circle-user,
+.SwipeApp .fa-comment-dots {
   color: #dadfe6;
   font-size: 1.5rem;
 }
-
-.fa-fire-flame-curved {
+.SwipeApp .fa-fire-flame-curved {
   color: #fe466d;
   font-size: 1.7rem;
 }
-
-.fa-circle-info {
+.SwipeApp .fa-circle-info {
   cursor: pointer;
   transition: 500ms ease;
 }
-
-.fa-circle-info:hover {
+.SwipeApp .fa-circle-info:hover {
   transform: scale(1.1);
   color: #fff;
 }
-
-.fa-arrow-rotate-left {
+.SwipeApp .fa-arrow-rotate-left {
   color: #f7e707;
 }
-
-.fa-close {
+.SwipeApp .fa-close {
   color: #fd5068;
 }
-
-.fa-star {
+.SwipeApp .fa-star {
   color: #2db1ff;
 }
-
-.fa-heart {
+.SwipeApp .fa-heart {
   color: #1be4a1;
 }
-
-.fa-bolt {
+.SwipeApp .fa-bolt {
   color: #e211e2;
+}
+.SwipeApp--step-2 .person {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SwipeApp--step-2 .person figure {
+  display: none;
+}
+.SwipeApp .command--redo > * {
+  pointer-events: none;
 }
