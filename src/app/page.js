@@ -6,6 +6,9 @@ import Hero from "./Hero";
 import { Lato } from "next/font/google";
 import AOS from "aos";
 import About from "./About";
+import Features from "./Features";
+import Footer from "./Footer";
+import EmailSignup from "./EmailSignup";
 
 const lato = Lato({
   weight: ["400", "700", "900"],
@@ -22,7 +25,10 @@ export default function Home() {
   return (
     <main className={lato.className}>
       <Hero></Hero>
+      <Features></Features>
       {/* <About></About> */}
+      <EmailSignup></EmailSignup>
+      <Footer></Footer>
     </main>
   );
 }

@@ -87,6 +87,7 @@ export default function Hero() {
         {/* ghost shapes */}
         <div className="static-shape ghost-shape ghost-shape-1" />
       </div>
+
       <div className="container">
         <div className="row">
           <div className="col-md-8">
@@ -101,21 +102,16 @@ export default function Hero() {
             </h1>
 
             <p className="lead">
-              Optimize your dating profile by knowing what people actually think
-              of you.
+              Optimize your dating profile. Get feedback from real humans to
+              know which picture works best for you!
             </p>
             <nav className="nav my-5">
               <a
                 href="#!"
                 className="btn btn-rounded btn-alternate mr-2 mr-md-5">
-                Know more
+                Join Now
                 <i className="fas fa-long-arrow-alt-right ml-2" />
               </a>{" "}
-              <a
-                href="#demos"
-                className="btn btn-rounded btn-outline-alternate scrollto">
-                Free trial
-              </a>
             </nav>
           </div>
           <div className="col-md-4">
