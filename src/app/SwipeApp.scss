@@ -207,7 +207,7 @@
   .person {
     width: 99%;
     height: 100%;
-    background: #d6d5d5;
+
     border-radius: 10px;
   }
 
@@ -358,6 +358,7 @@
     justify-content: space-around;
     align-items: center;
     height: 100px;
+    padding: 0 10px;
   }
 
   .command {
@@ -381,6 +382,7 @@
   .commands .command:nth-child(2n + 1) {
     height: 48px;
     width: 48px;
+    min-width: 48px;
     font-size: 1.5rem;
   }
 
@@ -432,19 +434,133 @@
     color: #1be4a1;
   }
 
-  .fa-bolt {
-    color: #e211e2;
+  .fa-skip svg {
+    height: 30px;
+    width: 30px;
+    fill: gray;
   }
 
+  .submit {
+    border: unset;
+    background: unset;
+    display: none;
+  }
+  input:where(.chip[type="checkbox"]) {
+    --color: #6c6;
+    font-size: 1rem;
+    appearance: none;
+    position: relative;
+    border: 1px solid #0004;
+    border-radius: 100em;
+    overflow: clip;
+    margin: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 5px 3px;
+    cursor: pointer;
+
+    &::after {
+      content: attr(value);
+      white-space: pre;
+      line-height: 1;
+      position: relative;
+      padding: 0.5em 1em 0.5em 2em;
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 0.75em;
+      aspect-ratio: 1;
+      background: linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0);
+      background-position: -200% -2em, 2em -200%, 50% 50%;
+      background-size: 1em 0.125em, 0.125em 1em;
+      background-repeat: no-repeat;
+      background-color: var(--color);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 1.125em;
+      translate: -50% -50%;
+      rotate: 45deg;
+      transition: width 0.25s, background-position 0.5s;
+    }
+
+    &.grow,
+    &.bounce {
+      &::before {
+        background-position: 50% 50%, 50% 50%, 50% 50%;
+        background-size: 0 0, 0 0;
+        transition: width 0.25s, background-size 0.5s;
+      }
+    }
+
+    &.bounce {
+      &::before {
+        transition-timing-function: ease-in-out, cubic-bezier(0.75, 0, 0.5, 2);
+      }
+    }
+
+    &:checked {
+      &::before {
+        width: 200%;
+        background-position: 50% 50%, 50% 50%, 50% 50%;
+        background-size: 1em 0.125em, 0.125em 1em;
+      }
+    }
+
+    &:disabled {
+      --color: #eee !important;
+      color: #6c6c6c;
+      border-color: #0001;
+    }
+
+    &:hover:not(:disabled) {
+      border-color: #000a;
+
+      transition: 0.4s;
+    }
+  }
+
+  .command-votes {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  /* Step 2
+  ======================== */
+
   &--step-2 {
+    .secondStep {
+      padding-top: 40px;
+      margin: 0 10px;
+      max-height: 99%;
+      overflow-y: scroll;
+    }
     .person {
       display: flex;
-      align-items: center;
       justify-content: center;
 
       figure {
         display: none;
       }
+    }
+
+    .command-votes > .command {
+      display: none;
+    }
+
+    .submit {
+      display: block;
+      width: 90%;
+      background: orange;
+      border-radius: 8px;
+      height: 50px;
     }
   }
 

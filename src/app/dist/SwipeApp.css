@@ -4,6 +4,8 @@
   } */
   /* Actions */
   /* icon size and colors */
+  /* Step 2
+  ======================== */
 }
 .SwipeApp .smartphone {
   display: flex;
@@ -188,7 +190,6 @@
 .SwipeApp .person {
   width: 99%;
   height: 100%;
-  background: #d6d5d5;
   border-radius: 10px;
 }
 .SwipeApp .photo {
@@ -311,6 +312,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
+  padding: 0 10px;
 }
 .SwipeApp .command {
   display: flex;
@@ -331,6 +333,7 @@
 .SwipeApp .commands .command:nth-child(2n+1) {
   height: 48px;
   width: 48px;
+  min-width: 48px;
   font-size: 1.5rem;
 }
 .SwipeApp .command:hover {
@@ -370,16 +373,107 @@
 .SwipeApp .fa-heart {
   color: #1be4a1;
 }
-.SwipeApp .fa-bolt {
-  color: #e211e2;
+.SwipeApp .fa-skip svg {
+  height: 30px;
+  width: 30px;
+  fill: gray;
+}
+.SwipeApp .submit {
+  border: unset;
+  background: unset;
+  display: none;
+}
+.SwipeApp input:where(.chip[type=checkbox]) {
+  --color: #6c6;
+  font-size: 1rem;
+  appearance: none;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2666666667);
+  border-radius: 100em;
+  overflow: clip;
+  margin: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 5px 3px;
+  cursor: pointer;
+}
+.SwipeApp input:where(.chip[type=checkbox])::after {
+  content: attr(value);
+  white-space: pre;
+  line-height: 1;
+  position: relative;
+  padding: 0.5em 1em 0.5em 2em;
+  display: block;
+}
+.SwipeApp input:where(.chip[type=checkbox])::before {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  aspect-ratio: 1;
+  background: linear-gradient(currentcolor 0 0), linear-gradient(currentcolor 0 0);
+  background-position: -200% -2em, 2em -200%, 50% 50%;
+  background-size: 1em 0.125em, 0.125em 1em;
+  background-repeat: no-repeat;
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 1.125em;
+  translate: -50% -50%;
+  rotate: 45deg;
+  transition: width 0.25s, background-position 0.5s;
+}
+.SwipeApp input:where(.chip[type=checkbox]).grow::before, .SwipeApp input:where(.chip[type=checkbox]).bounce::before {
+  background-position: 50% 50%, 50% 50%, 50% 50%;
+  background-size: 0 0, 0 0;
+  transition: width 0.25s, background-size 0.5s;
+}
+.SwipeApp input:where(.chip[type=checkbox]).bounce::before {
+  transition-timing-function: ease-in-out, cubic-bezier(0.75, 0, 0.5, 2);
+}
+.SwipeApp input:where(.chip[type=checkbox]):checked::before {
+  width: 200%;
+  background-position: 50% 50%, 50% 50%, 50% 50%;
+  background-size: 1em 0.125em, 0.125em 1em;
+}
+.SwipeApp input:where(.chip[type=checkbox]):disabled {
+  --color: #eee !important;
+  color: #6c6c6c;
+  border-color: rgba(0, 0, 0, 0.0666666667);
+}
+.SwipeApp input:where(.chip[type=checkbox]):hover:not(:disabled) {
+  border-color: rgba(0, 0, 0, 0.6666666667);
+  transition: 0.4s;
+}
+.SwipeApp .command-votes {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.SwipeApp--step-2 .secondStep {
+  padding-top: 40px;
+  margin: 0 10px;
+  max-height: 99%;
+  overflow-y: scroll;
 }
 .SwipeApp--step-2 .person {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .SwipeApp--step-2 .person figure {
   display: none;
+}
+.SwipeApp--step-2 .command-votes > .command {
+  display: none;
+}
+.SwipeApp--step-2 .submit {
+  display: block;
+  width: 90%;
+  background: orange;
+  border-radius: 8px;
+  height: 50px;
 }
 .SwipeApp .command--redo > * {
   pointer-events: none;

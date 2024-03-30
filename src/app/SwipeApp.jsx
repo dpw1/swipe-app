@@ -9,6 +9,45 @@ export default function SwipeApp() {
   const SWIPE_DISTANCE_Y = -72;
   const SWIPE_DISTANCE_X = 120;
 
+  const POSITIVE_REASONS = [
+    "😍 cute",
+    "🥵 hot",
+    "outfit",
+    "😎 stylish",
+    "elegant",
+    "cool background",
+    "smile",
+    "hair",
+  ];
+
+  const NEGATIVE_REASONS = [
+    "angle",
+    "background",
+    "blurry",
+    "bright",
+    "can't see face",
+    "clothes",
+    "bad image quality",
+    "crop",
+    "dark",
+    "expression",
+    "eye contact",
+    "filter/effects",
+    "hair",
+    "multiple people",
+    "pose",
+    "posture",
+    "selfie",
+    "shadows",
+
+    "smile less",
+    "smile more",
+    "sunglasses",
+    "too close-up",
+    "too far away",
+    "too much skin",
+  ];
+
   useEffect(() => {
     var el = document.querySelector(".photo");
     var hammerTime = new Hammer(el);
@@ -181,16 +220,39 @@ export default function SwipeApp() {
               {step === 2 && (
                 <div className="secondStep">
                   <p>Why did you {like}?</p>
+
+                  <div className="secondStep-reasons">
+                    {like === "dislike"
+                      ? NEGATIVE_REASONS.map((e) => {
+                          return (
+                            <input
+                              key={e}
+                              type="checkbox"
+                              class="chip grow"
+                              role="switch"
+                              value={`${e}`}
+                              aria-label={`${e}`}
+                            />
+                          );
+                        })
+                      : POSITIVE_REASONS.map((e) => {
+                          return (
+                            <input
+                              key={e}
+                              type="checkbox"
+                              class="chip grow"
+                              role="switch"
+                              value={`${e}`}
+                              aria-label={`${e}`}
+                            />
+                          );
+                        })}
+                  </div>
                 </div>
               )}
             </div>
             <div className="commands">
-              <div
-                className="command command--redo"
-                onClick={() => {
-                  //   setStep(1);
-                  //   restart();
-                }}>
+              <div className="command command--redo">
                 <i className="fa fa-arrow-rotate-left">
                   <svg
                     viewBox="0 -256 1792 1792"
@@ -210,24 +272,34 @@ export default function SwipeApp() {
                   </svg>
                 </i>
               </div>
+              <div className="command-votes">
+                <div className="command">
+                  <i className="fa fa-close">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor">
+                      <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z" />
+                    </svg>
+                  </i>
+                </div>
+                <div className="command">
+                  <i className="fa fa-star" />
+                </div>
+                <div className="command">
+                  <i className="fa fa-heart"></i>
+                </div>
+                <button className="submit">Send</button>
+              </div>
               <div className="command">
-                <i className="fa fa-close">
+                <div className="fa fa-skip">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor">
-                    <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z" />
+                    <path d="M16 12.6667L5.77735 19.4818C5.54759 19.6349 5.23715 19.5729 5.08397 19.3431C5.02922 19.261 5 19.1645 5 19.0657V4.93426C5 4.65812 5.22386 4.43426 5.5 4.43426C5.59871 4.43426 5.69522 4.46348 5.77735 4.51823L16 11.3333V5C16 4.44772 16.4477 4 17 4C17.5523 4 18 4.44772 18 5V19C18 19.5523 17.5523 20 17 20C16.4477 20 16 19.5523 16 19V12.6667Z" />
                   </svg>
-                </i>
-              </div>
-              <div className="command">
-                <i className="fa fa-star" />
-              </div>
-              <div className="command">
-                <i className="fa fa-heart"></i>
-              </div>
-              <div className="command">
-                <i className="fa fa-bolt" />
+                </div>
               </div>
             </div>
           </div>
