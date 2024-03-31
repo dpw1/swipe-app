@@ -63,7 +63,7 @@ export default function Features() {
                   <i className="mx-auto mr-md-3 mx-auto mr-md-3 accent pe pe-7s-users pe-3x" />
                   <div className="media-body mt-3 mt-md-0">
                     <h5 className="bold mt-0 mb-1">
-                      2. Vote on other people's photos
+                      2. Vote on other people photos
                     </h5>
                     <p className="m-0">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
