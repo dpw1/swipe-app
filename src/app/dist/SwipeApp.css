@@ -470,6 +470,7 @@
 }
 .SwipeApp--step-2 .secondStep-reasons {
   overflow-y: scroll;
+  height: 80%;
 }
 .SwipeApp--step-2 .secondStep--dislike input:where(.chip[type=checkbox]) {
   --color: #fd5068 !important;

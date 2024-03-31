@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import "./SwipeApp.scss";
-import "hammerjs";
+
 import { sortEmojiArray } from "./utils";
 import Progress from "./Progress";
 
@@ -59,158 +61,165 @@ export default function SwipeApp() {
   ]);
 
   useEffect(() => {
-    var el = document.querySelector(".photo");
-    var hammerTime = new Hammer(el);
-    hammerTime.get("pan").set({ direction: Hammer.DIRECTION_ALL });
-    hammerTime.get("pinch").set({ enable: true });
+    (async () => {
+      if (window === undefined) {
+        return;
+      }
+      await import(`hammerjs`);
 
-    hammerTime.on("pan", function (ev) {
-      el.classList.add("moving");
+      var el = document.querySelector(".photo");
+      var hammerTime = new Hammer(el);
+      hammerTime.get("pan").set({ direction: Hammer.DIRECTION_ALL });
+      hammerTime.get("pinch").set({ enable: true });
 
-      el.classList.toggle("nope", ev.deltaX < -120);
-      el.classList.toggle("like", ev.deltaX > 120);
-      el.classList.toggle(
-        "super_like",
-        (ev.deltaY < -72) & (Math.abs(ev.deltaX) < 80),
-      );
-      var rotate = ev.deltaX * ev.deltaY * 4e-4;
-      el.style.transform =
-        "translate(" +
-        ev.deltaX +
-        "px, " +
-        ev.deltaY +
-        "px) rotate(" +
-        rotate +
-        "deg)";
-    });
+      hammerTime.on("pan", function (ev) {
+        el.classList.add("moving");
 
-    hammerTime.on("panend", function (ev) {
-      var absVel = Math.abs(ev.velocity);
-      var absDelX = Math.abs(ev.deltaX);
-
-      el.classList.remove("nope", "like", "super_like", "moving");
-
-      if (absDelX > SWIPE_DISTANCE_X) {
-        var transitionDuration =
-          250 / (absVel + 0.4) > 150
-            ? 250 / (absVel + 0.4) > 400
-              ? 400
-              : 250 / (absVel + 0.4)
-            : 150;
-        el.style.transitionDuration = transitionDuration + "ms";
+        el.classList.toggle("nope", ev.deltaX < -120);
+        el.classList.toggle("like", ev.deltaX > 120);
+        el.classList.toggle(
+          "super_like",
+          (ev.deltaY < -72) & (Math.abs(ev.deltaX) < 80),
+        );
         var rotate = ev.deltaX * ev.deltaY * 4e-4;
-        var mult = absVel > 1.4 ? absVel : 1.4;
         el.style.transform =
           "translate(" +
-          ev.deltaX * 1.4 * mult +
+          ev.deltaX +
           "px, " +
-          ev.deltaY * mult +
+          ev.deltaY +
           "px) rotate(" +
-          rotate * mult +
+          rotate +
           "deg)";
-        el.style.opacity = 0;
+      });
 
-        if (ev.deltaX > 0) {
-          setLike("like");
-        } else if (ev.deltaX < 0) {
-          setLike("dislike");
+      hammerTime.on("panend", function (ev) {
+        var absVel = Math.abs(ev.velocity);
+        var absDelX = Math.abs(ev.deltaX);
+
+        el.classList.remove("nope", "like", "super_like", "moving");
+
+        if (absDelX > SWIPE_DISTANCE_X) {
+          var transitionDuration =
+            250 / (absVel + 0.4) > 150
+              ? 250 / (absVel + 0.4) > 400
+                ? 400
+                : 250 / (absVel + 0.4)
+              : 150;
+          el.style.transitionDuration = transitionDuration + "ms";
+          var rotate = ev.deltaX * ev.deltaY * 4e-4;
+          var mult = absVel > 1.4 ? absVel : 1.4;
+          el.style.transform =
+            "translate(" +
+            ev.deltaX * 1.4 * mult +
+            "px, " +
+            ev.deltaY * mult +
+            "px) rotate(" +
+            rotate * mult +
+            "deg)";
+          el.style.opacity = 0;
+
+          if (ev.deltaX > 0) {
+            setLike("like");
+          } else if (ev.deltaX < 0) {
+            setLike("dislike");
+          }
+          repeat(transitionDuration);
+        } else if (ev.deltaY < SWIPE_DISTANCE_Y) {
+          var transitionDuration =
+            250 / (absVel + 0.4) > 150
+              ? 250 / (absVel + 0.4) > 400
+                ? 400
+                : 250 / (absVel + 0.4)
+              : 150;
+          el.style.transitionDuration = transitionDuration + "ms";
+          var mult = absVel > 2 ? absVel : 2;
+          el.style.transform = "translate( 0px, " + ev.deltaY * mult + "px)";
+          el.style.opacity = 0;
+
+          setLike("superlike");
+          repeat(transitionDuration);
+        } else {
+          el.style.transform = "";
+          setLike(null);
         }
-        repeat(transitionDuration);
-      } else if (ev.deltaY < SWIPE_DISTANCE_Y) {
-        var transitionDuration =
-          250 / (absVel + 0.4) > 150
-            ? 250 / (absVel + 0.4) > 400
-              ? 400
-              : 250 / (absVel + 0.4)
-            : 150;
-        el.style.transitionDuration = transitionDuration + "ms";
-        var mult = absVel > 2 ? absVel : 2;
-        el.style.transform = "translate( 0px, " + ev.deltaY * mult + "px)";
-        el.style.opacity = 0;
+      });
 
-        setLike("superlike");
-        repeat(transitionDuration);
-      } else {
-        el.style.transform = "";
-        setLike(null);
-      }
-    });
+      hammerTime.on("pinch", function (ev) {
+        el.style.transitionDuration = "0ms";
+        el.style.transform = "scale(" + ev.scale + ")";
+      });
 
-    hammerTime.on("pinch", function (ev) {
-      el.style.transitionDuration = "0ms";
-      el.style.transform = "scale(" + ev.scale + ")";
-    });
+      hammerTime.on("pinchend", function (ev) {
+        el.style.transform = "scale(1)";
+      });
 
-    hammerTime.on("pinchend", function (ev) {
-      el.style.transform = "scale(1)";
-    });
-
-    function repeat(transitionDuration = 350) {
-      setTimeout(function () {
-        setStep(2);
-      }, transitionDuration);
-      return;
-    }
-
-    function restart(transitionDuration = 350) {
-      setTimeout(function () {
-        el.style.transform = "";
+      function repeat(transitionDuration = 350) {
         setTimeout(function () {
-          el.classList.remove("nope", "like", "super_like", "moving");
-          el.style.opacity = 1;
+          setStep(2);
         }, transitionDuration);
-      }, transitionDuration);
-    }
-
-    function buttonEvent(reaction) {
-      var transitionDuration = Math.random() * 300 + 300;
-      el.style.transitionDuration = transitionDuration + "ms";
-      var x = Math.random() * 300 + 100;
-      var y = Math.random() * 400 - 200;
-      var rotate = x * y * 4e-4;
-      if (reaction == "like") {
-        el.classList.toggle("like");
-      } else if (reaction == "dislike") {
-        el.classList.toggle("nope");
-        x *= -1;
-      } else if (reaction == "super_like") {
-        el.classList.toggle("super_like");
-        x = rotate = 0;
-        y = y < 0 ? y * 3 : -y * 3;
+        return;
       }
-      el.style.transform =
-        "translate(" + x + "px, " + y + "px) rotate(" + rotate + "deg)";
-      el.style.opacity = 0;
-      repeat(transitionDuration * 0.8);
-    }
 
-    document
-      .querySelector(`.command--redo`)
-      .addEventListener(`click`, function () {
-        setStep(1);
-        restart(0);
-      });
+      function restart(transitionDuration = 350) {
+        setTimeout(function () {
+          el.style.transform = "";
+          setTimeout(function () {
+            el.classList.remove("nope", "like", "super_like", "moving");
+            el.style.opacity = 1;
+          }, transitionDuration);
+        }, transitionDuration);
+      }
 
-    document
-      .querySelector(".fa-close")
-      .parentNode.addEventListener("click", function () {
-        buttonEvent("dislike");
-        setLike("dislike");
-      });
+      function buttonEvent(reaction) {
+        var transitionDuration = Math.random() * 300 + 300;
+        el.style.transitionDuration = transitionDuration + "ms";
+        var x = Math.random() * 300 + 100;
+        var y = Math.random() * 400 - 200;
+        var rotate = x * y * 4e-4;
+        if (reaction == "like") {
+          el.classList.toggle("like");
+        } else if (reaction == "dislike") {
+          el.classList.toggle("nope");
+          x *= -1;
+        } else if (reaction == "super_like") {
+          el.classList.toggle("super_like");
+          x = rotate = 0;
+          y = y < 0 ? y * 3 : -y * 3;
+        }
+        el.style.transform =
+          "translate(" + x + "px, " + y + "px) rotate(" + rotate + "deg)";
+        el.style.opacity = 0;
+        repeat(transitionDuration * 0.8);
+      }
 
-    document
-      .querySelector(".fa-star")
-      .parentNode.addEventListener("click", function () {
-        buttonEvent("super_like");
-        setLike("superlike");
-      });
+      document
+        .querySelector(`.command--redo`)
+        .addEventListener(`click`, function () {
+          setStep(1);
+          restart(0);
+        });
 
-    document
-      .querySelector(".fa-heart")
-      .parentNode.addEventListener("click", function () {
-        buttonEvent("like");
-        setLike("like");
-      });
+      document
+        .querySelector(".fa-close")
+        .parentNode.addEventListener("click", function () {
+          buttonEvent("dislike");
+          setLike("dislike");
+        });
+
+      document
+        .querySelector(".fa-star")
+        .parentNode.addEventListener("click", function () {
+          buttonEvent("super_like");
+          setLike("superlike");
+        });
+
+      document
+        .querySelector(".fa-heart")
+        .parentNode.addEventListener("click", function () {
+          buttonEvent("like");
+          setLike("like");
+        });
+    })();
   }, []);
 
   return (

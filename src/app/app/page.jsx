@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { Lato } from "next/font/google";
 import Footer from "../Footer";
 
-import AOS from "aos";
+// import AOS from "aos";
+
 import SwipeApp from "../SwipeApp";
 
 const lato = Lato({
@@ -13,14 +14,18 @@ const lato = Lato({
 
 export default function App() {
   useEffect(() => {
-    return () => {
-      AOS.init();
+    return async () => {
+      // if (window !== undefined) {
+      //   const AOS = (await import("aos")).default;
+      //   AOS.init();
+      // }
     };
   }, []);
 
   return (
     <main className={lato.className}>
       <SwipeApp></SwipeApp>
+
       {/* <Footer></Footer> */}
     </main>
   );
