@@ -14,12 +14,10 @@ const lato = Lato({
 
 export default function App() {
   useEffect(() => {
-    return async () => {
-      // if (window !== undefined) {
-      //   const AOS = (await import("aos")).default;
-      //   AOS.init();
-      // }
-    };
+    // if (window !== undefined) {
+    //   const AOS = (await import("aos")).default;
+    //   AOS.init();
+    // }
   }, []);
 
   return (
