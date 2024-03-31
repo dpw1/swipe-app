@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Hero from "./Hero";
 import { Lato } from "next/font/google";
-import AOS from "aos";
+
 import About from "./About";
 import Features from "./Features";
 import Footer from "./Footer";
@@ -17,9 +17,14 @@ const lato = Lato({
 
 export default function Home() {
   useEffect(() => {
-    return () => {
+    console.log("home use effect");
+
+    (async () => {
+      console.log("start");
+      const AOS = await import("aos");
+      console.log("use effect", window.AOS);
       AOS.init();
-    };
+    })();
   }, []);
 
   return (
