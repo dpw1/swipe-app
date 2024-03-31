@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .SwipeApp {
   .smartphone {
     display: flex;
@@ -35,7 +37,6 @@
     color: white;
     font-size: 15px;
     border-radius: 7px 7px 0 0;
-    font-family: monospace;
   }
 
   .topbar-left {
@@ -148,10 +149,6 @@
     border-radius: 50%;
   }
 
-  .topbar-right {
-    font-family: monospace;
-  }
-
   .topbar-right::before {
     content: "";
     background: black;
@@ -206,7 +203,7 @@
 
   .person {
     width: 99%;
-    height: 100%;
+    height: 80%;
 
     border-radius: 10px;
   }
@@ -214,8 +211,8 @@
   .photo {
     margin: auto;
     height: 100%;
-    background: url("https://i.pinimg.com/originals/55/91/80/5591809ff56c527ff1897828d2fb3290.jpg")
-      center center/cover;
+    // background: url("https://i.pinimg.com/originals/55/91/80/5591809ff56c527ff1897828d2fb3290.jpg")
+    //   center center/cover;
     border-radius: 10px;
     display: flex;
     align-items: flex-end;
@@ -223,6 +220,9 @@
     box-shadow: 0 2px 7px 0 rgba(136, 136, 136, 0.7);
     cursor: grab;
     transition: 300ms;
+
+    @at-root .SwipeApp--aspect-ratio-square {
+    }
   }
 
   .photo.moving {
@@ -249,7 +249,6 @@
     color: #fe466d;
     border: 6px solid #fe466d;
     border-radius: 8px;
-    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 3rem;
     padding: 0.2rem 0.4rem;
@@ -264,13 +263,12 @@
     color: #08a4ef;
     border: 6px solid #08a4ef;
     border-radius: 8px;
-    font-family: "Roboto", sans-serif;
     text-align: center;
     font-weight: 500;
     font-size: 2.8rem;
     padding: 0.2rem 0.4rem;
     position: absolute;
-    width: 150px;
+    width: 200px;
     bottom: 10%;
     left: 24%;
     transform: rotate(-15deg);
@@ -278,10 +276,9 @@
 
   .photo.like::after {
     content: "LIKE";
-    color: #1be4a1;
-    border: 6px solid #1be4a1;
+    color: $green;
+    border: 6px solid $green;
     border-radius: 8px;
-    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 3rem;
     padding: 0.2rem 0.4rem;
@@ -357,7 +354,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100px;
+    height: 90px;
     padding: 0 10px;
   }
 
@@ -446,7 +443,7 @@
     display: none;
   }
   input:where(.chip[type="checkbox"]) {
-    --color: #6c6;
+    --color: #{$green};
     font-size: 1rem;
     appearance: none;
     position: relative;
@@ -532,6 +529,10 @@
     justify-content: space-evenly;
   }
 
+  .swatch {
+    font-size: 14px !important;
+  }
+
   /* Step 2
   ======================== */
 
@@ -540,7 +541,16 @@
       padding-top: 40px;
       margin: 0 10px;
       max-height: 99%;
+    }
+
+    .secondStep-reasons {
       overflow-y: scroll;
+    }
+
+    .secondStep--dislike {
+      input:where(.chip[type="checkbox"]) {
+        --color: #{$red} !important;
+      }
     }
     .person {
       display: flex;
@@ -558,9 +568,16 @@
     .submit {
       display: block;
       width: 90%;
-      background: orange;
+      background: #1be4a1;
       border-radius: 8px;
       height: 50px;
+      color: white;
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      /* letter-spacing: 11px; */
+      text-align: center;
     }
   }
 

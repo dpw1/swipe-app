@@ -97,13 +97,13 @@ export default function Hero() {
             </span>
             <h1 className="display-4 display-md-2 mt-3 text-h1">
               <span className="bold">
-                Find out what people <u>really</u> think of your pictures
+                Get honest ratings on your dating and social photos
               </span>
             </h1>
 
             <p className="lead">
-              Optimize your dating profile. Get feedback from real humans to
-              know which picture works best for you!
+              Receive kind-hearted, constructive feedback on your pictures from
+              real everyday users worldwide.
             </p>
             <nav className="nav my-5">
               <a

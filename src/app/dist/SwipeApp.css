@@ -1,3 +1,19 @@
+/* Sizes */
+.text-h6 {
+  font-size: 14px;
+}
+
+.text-h1 {
+  font-size: 65px !important;
+}
+
+.btn {
+  font-size: 16px;
+  line-height: 1;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
 .SwipeApp {
   /* .screen footer .fa-reorder {
     transform: rotate(90deg);
@@ -41,7 +57,6 @@
   color: white;
   font-size: 15px;
   border-radius: 7px 7px 0 0;
-  font-family: monospace;
 }
 .SwipeApp .topbar-left {
   display: flex;
@@ -141,9 +156,6 @@
   background: rgba(0, 0, 0, 0.5215686275);
   border-radius: 50%;
 }
-.SwipeApp .topbar-right {
-  font-family: monospace;
-}
 .SwipeApp .topbar-right::before {
   content: "";
   background: black;
@@ -189,13 +201,12 @@
 }
 .SwipeApp .person {
   width: 99%;
-  height: 100%;
+  height: 80%;
   border-radius: 10px;
 }
 .SwipeApp .photo {
   margin: auto;
   height: 100%;
-  background: url("https://i.pinimg.com/originals/55/91/80/5591809ff56c527ff1897828d2fb3290.jpg") center center/cover;
   border-radius: 10px;
   display: flex;
   align-items: flex-end;
@@ -221,7 +232,6 @@
   color: #fe466d;
   border: 6px solid #fe466d;
   border-radius: 8px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 3rem;
   padding: 0.2rem 0.4rem;
@@ -235,13 +245,12 @@
   color: #08a4ef;
   border: 6px solid #08a4ef;
   border-radius: 8px;
-  font-family: "Roboto", sans-serif;
   text-align: center;
   font-weight: 500;
   font-size: 2.8rem;
   padding: 0.2rem 0.4rem;
   position: absolute;
-  width: 150px;
+  width: 200px;
   bottom: 10%;
   left: 24%;
   transform: rotate(-15deg);
@@ -251,7 +260,6 @@
   color: #1be4a1;
   border: 6px solid #1be4a1;
   border-radius: 8px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 3rem;
   padding: 0.2rem 0.4rem;
@@ -311,7 +319,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: 90px;
   padding: 0 10px;
 }
 .SwipeApp .command {
@@ -384,7 +392,7 @@
   display: none;
 }
 .SwipeApp input:where(.chip[type=checkbox]) {
-  --color: #6c6;
+  --color: #1be4a1;
   font-size: 1rem;
   appearance: none;
   position: relative;
@@ -452,11 +460,19 @@
   align-items: center;
   justify-content: space-evenly;
 }
+.SwipeApp .swatch {
+  font-size: 14px !important;
+}
 .SwipeApp--step-2 .secondStep {
   padding-top: 40px;
   margin: 0 10px;
   max-height: 99%;
+}
+.SwipeApp--step-2 .secondStep-reasons {
   overflow-y: scroll;
+}
+.SwipeApp--step-2 .secondStep--dislike input:where(.chip[type=checkbox]) {
+  --color: #fd5068 !important;
 }
 .SwipeApp--step-2 .person {
   display: flex;
@@ -471,9 +487,16 @@
 .SwipeApp--step-2 .submit {
   display: block;
   width: 90%;
-  background: orange;
+  background: #1be4a1;
   border-radius: 8px;
   height: 50px;
+  color: white;
+  font-size: 35px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  /* letter-spacing: 11px; */
+  text-align: center;
 }
 .SwipeApp .command--redo > * {
   pointer-events: none;

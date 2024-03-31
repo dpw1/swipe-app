@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./SwipeApp.scss";
 import "hammerjs";
+import { sortEmojiArray } from "./utils";
+import Progress from "./Progress";
 
 export default function SwipeApp() {
   const [step, setStep] = useState(1);
   const [like, setLike] = useState(null); // dislike, like, superlike
+  const ASPECT_RATIO = "square";
+
+  const user = {
+    id: 123,
+    name: "Lorem",
+    age: 26,
+    picture: `https://i.pinimg.com/originals/55/91/80/5591809ff56c527ff1897828d2fb3290.jpg`,
+  };
 
   const SWIPE_DISTANCE_Y = -72;
   const SWIPE_DISTANCE_X = 120;
 
-  const POSITIVE_REASONS = [
+  const POSITIVE_REASONS = sortEmojiArray([
     "😍 cute",
     "🥵 hot",
     "outfit",
@@ -18,9 +28,10 @@ export default function SwipeApp() {
     "cool background",
     "smile",
     "hair",
-  ];
+    "social",
+  ]);
 
-  const NEGATIVE_REASONS = [
+  const NEGATIVE_REASONS = sortEmojiArray([
     "angle",
     "background",
     "blurry",
@@ -31,7 +42,7 @@ export default function SwipeApp() {
     "crop",
     "dark",
     "expression",
-    "eye contact",
+    "no eye contact",
     "filter/effects",
     "hair",
     "multiple people",
@@ -39,14 +50,13 @@ export default function SwipeApp() {
     "posture",
     "selfie",
     "shadows",
-
     "smile less",
     "smile more",
     "sunglasses",
     "too close-up",
     "too far away",
     "too much skin",
-  ];
+  ]);
 
   useEffect(() => {
     var el = document.querySelector(".photo");
@@ -204,22 +214,31 @@ export default function SwipeApp() {
   }, []);
 
   return (
-    <div className={`SwipeApp SwipeApp--step-${step}`}>
+    <div
+      className={`SwipeApp SwipeApp--step-${step} SwipeApp--aspect-ratio-${ASPECT_RATIO}`}>
       <>
         <div className="smartphone">
           <div className="screen">
             <div className="person">
-              <figure className="photo">
+              <figure
+                className="photo"
+                style={{
+                  background: `url("${user.picture}")
+              center center/cover`,
+                }}>
                 <div className="personal">
                   <div className="name-age">
-                    <h2 className="name">Lorem</h2>
+                    <h2 className="name">Lorem,</h2>
                     <h2 className="age">26</h2>
                   </div>
                 </div>
               </figure>
               {step === 2 && (
-                <div className="secondStep">
-                  <p>Why did you {like}?</p>
+                <div className={`secondStep secondStep--${like}`}>
+                  <h3>What made you {like}?</h3>
+                  <span className="text-h6">
+                    Remember: your feedback is valuable for this person.
+                  </span>
 
                   <div className="secondStep-reasons">
                     {like === "dislike"
@@ -228,7 +247,7 @@ export default function SwipeApp() {
                             <input
                               key={e}
                               type="checkbox"
-                              class="chip grow"
+                              class="chip grow swatch"
                               role="switch"
                               value={`${e}`}
                               aria-label={`${e}`}
@@ -240,7 +259,7 @@ export default function SwipeApp() {
                             <input
                               key={e}
                               type="checkbox"
-                              class="chip grow"
+                              class="chip grow swatch"
                               role="switch"
                               value={`${e}`}
                               aria-label={`${e}`}
@@ -251,6 +270,7 @@ export default function SwipeApp() {
                 </div>
               )}
             </div>
+            <Progress step={step}></Progress>
             <div className="commands">
               <div className="command command--redo">
                 <i className="fa fa-arrow-rotate-left">
@@ -289,7 +309,9 @@ export default function SwipeApp() {
                 <div className="command">
                   <i className="fa fa-heart"></i>
                 </div>
-                <button className="submit">Send</button>
+                <button className="submit">
+                  {step === 2 ? "NEXT" : "DONE"}
+                </button>
               </div>
               <div className="command">
                 <div className="fa fa-skip">
