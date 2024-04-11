@@ -10,8 +10,8 @@ export default function EmailSignup() {
             <div className="section-heading text-center">
               <h2 className="heading-line">Join the waiting list</h2>
               <p className="lead text-alternate">
-                Enter your email for early access. We're releasing in next few
-                weeks!
+                Enter your email for early access. We will be releasing in the
+                next few weeks.
               </p>
             </div>
             <div className="mx-auto position-relative form-wrapper">

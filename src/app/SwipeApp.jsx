@@ -228,7 +228,7 @@ export default function SwipeApp() {
     <div
       className={`SwipeApp SwipeApp--step-${step} SwipeApp--aspect-ratio-${ASPECT_RATIO}
       
-      ${step >= 2 && 'SwipeApp--nextStep'}
+      ${step >= 2 && "SwipeApp--nextStep"}
       
       `}>
       <>
@@ -248,57 +248,52 @@ export default function SwipeApp() {
                   </div>
                 </div>
               </figure>
-              {step ===
-                2 && (
-                  <div className={`nextStep nextStep--${like}`}>
-                    <img
-                      className="nextStep-photo"
-                      src={user.picture}
-                      alt=""
-                    />
+              {step === 2 && (
+                <div className={`nextStep nextStep--${like}`}>
+                  <img className="nextStep-photo" src={user.picture} alt="" />
 
-                    <h3 className="nextStep-title title">
-                      What made you{" "}
-                      {like === "dislike"
-                        ? "swipe left"
-                        : like === "like"
-                        ? "swipe right"
-                        : "super like"}
-                      ?
-                    </h3>
-                    <span className="text-h6">
-                      Remember: your feedback is valuable for this person.
-                    </span>
+                  <h3 className="nextStep-title title">
+                    What made you{" "}
+                    {like === "dislike"
+                      ? "swipe left"
+                      : like === "like"
+                      ? "swipe right"
+                      : "super like"}
+                    ?
+                  </h3>
+                  <span className="text-h6">
+                    Remember: your feedback is valuable for this person.
+                  </span>
 
-                    <div className="nextStep-reasons">
-                      {like === "dislike"
-                        ? NEGATIVE_REASONS.map((e) => {
-                            return (
-                              <input
-                                key={e}
-                                type="checkbox"
-                                class="chip grow swatch text-h6"
-                                role="switch"
-                                value={`${e}`}
-                                aria-label={`${e}`}
-                              />
-                            );
-                          })
-                        : POSITIVE_REASONS.map((e) => {
-                            return (
-                              <input
-                                key={e}
-                                type="checkbox"
-                                class="chip grow swatch"
-                                role="switch"
-                                value={`${e}`}
-                                aria-label={`${e}`}
-                              />
-                            );
-                          })}
-                    </div>
-                  </div>,
-                )}
+                  <div className="nextStep-reasons">
+                    {like === "dislike"
+                      ? NEGATIVE_REASONS.map((e) => {
+                          return (
+                            <input
+                              key={e}
+                              type="checkbox"
+                              class="chip grow swatch text-h6"
+                              role="switch"
+                              value={`${e}`}
+                              aria-label={`${e}`}
+                            />
+                          );
+                        })
+                      : POSITIVE_REASONS.map((e) => {
+                          return (
+                            <input
+                              key={e}
+                              type="checkbox"
+                              class="chip grow swatch"
+                              role="switch"
+                              value={`${e}`}
+                              aria-label={`${e}`}
+                            />
+                          );
+                        })}
+                  </div>
+                </div>
+              )}
             </div>
             <Progress step={step}></Progress>
             <div className="commands">
