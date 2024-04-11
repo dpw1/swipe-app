@@ -97,7 +97,7 @@ export default function Hero() {
             </span>
             <h1 className="display-4 display-md-2 mt-3 text-h1">
               <span className="bold">
-                Get honest ratings on your dating and social photos
+                Get feedback on your dating and social pictures
               </span>
             </h1>
 

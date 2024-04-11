@@ -1,13 +1,10 @@
-/* Sizes */
-.text-h6 {
+body .text-h6 {
   font-size: 14px;
 }
-
-.text-h1 {
+body .text-h1 {
   font-size: 65px !important;
 }
-
-.btn {
+body .btn {
   font-size: 16px;
   line-height: 1;
   padding-top: 14px;
@@ -20,7 +17,7 @@
   } */
   /* Actions */
   /* icon size and colors */
-  /* Step 2
+  /* ## Step 3
   ======================== */
 }
 .SwipeApp .smartphone {
@@ -203,8 +200,9 @@
   width: 99%;
   height: 80%;
   border-radius: 10px;
+  display: flex;
 }
-.SwipeApp .photo {
+.SwipeApp .SwipeApp-swipable-photo {
   margin: auto;
   height: 100%;
   border-radius: 10px;
@@ -214,8 +212,10 @@
   box-shadow: 0 2px 7px 0 rgba(136, 136, 136, 0.7);
   cursor: grab;
   transition: 300ms;
+  width: 320px;
+  height: 320px;
 }
-.SwipeApp .photo.moving {
+.SwipeApp .SwipeApp-swipable-photo.moving {
   transition: none;
   cursor: grabbing;
 }
@@ -227,7 +227,7 @@
   width: 30px;
   height: 30px;
 }
-.SwipeApp .photo.nope::after {
+.SwipeApp .SwipeApp-swipable-photo.nope::after {
   content: "NOPE";
   color: #fe466d;
   border: 6px solid #fe466d;
@@ -240,7 +240,7 @@
   right: 8%;
   transform: rotate(15deg);
 }
-.SwipeApp .photo.super_like::after {
+.SwipeApp .SwipeApp-swipable-photo.super_like::after {
   content: "SUPER LIKE";
   color: #08a4ef;
   border: 6px solid #08a4ef;
@@ -255,7 +255,7 @@
   left: 24%;
   transform: rotate(-15deg);
 }
-.SwipeApp .photo.like::after {
+.SwipeApp .SwipeApp-swipable-photo.like::after {
   content: "LIKE";
   color: #1be4a1;
   border: 6px solid #1be4a1;
@@ -461,32 +461,12 @@
   justify-content: space-evenly;
 }
 .SwipeApp .swatch {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
-.SwipeApp--step-2 .secondStep {
-  padding-top: 40px;
-  margin: 0 10px;
-  max-height: 99%;
+.SwipeApp .title {
+  margin-top: 10px;
 }
-.SwipeApp--step-2 .secondStep-reasons {
-  overflow-y: scroll;
-  height: 80%;
-}
-.SwipeApp--step-2 .secondStep--dislike input:where(.chip[type=checkbox]) {
-  --color: #fd5068 !important;
-}
-.SwipeApp--step-2 .person {
-  display: flex;
-  justify-content: center;
-}
-.SwipeApp--step-2 .person figure {
-  display: none;
-}
-.SwipeApp--step-2 .command-votes > .command {
-  display: none;
-}
-.SwipeApp--step-2 .submit {
-  display: block;
+.SwipeApp .submit {
   width: 90%;
   background: #1be4a1;
   border-radius: 8px;
@@ -499,6 +479,47 @@
   /* letter-spacing: 11px; */
   text-align: center;
 }
+.SwipeApp .nextStep-photo {
+  max-width: 320px;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 .SwipeApp .command--redo > * {
   pointer-events: none;
+}
+.SwipeApp--step-3 .submit {
+  display: block;
+}
+.SwipeApp--step-3 .command-votes > .command {
+  display: none;
+}
+
+/* ## Next steps
+======================== */
+.SwipeApp--nextStep .person {
+  margin: 0 10px;
+  max-height: 99%;
+  padding: 0 10px;
+  padding-top: 10px;
+}
+.SwipeApp--nextStep .SwipeApp-swipable-photo {
+  display: none;
+}
+.SwipeApp--nextStep .nextStep-reasons {
+  height: 80%;
+}
+.SwipeApp--nextStep .nextStep--dislike input:where(.chip[type=checkbox]) {
+  --color: #fd5068 !important;
+}
+.SwipeApp--nextStep .person {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.SwipeApp--nextStep .submit {
+  display: block;
+}
+.SwipeApp--nextStep .command-votes > .command {
+  display: none;
 }

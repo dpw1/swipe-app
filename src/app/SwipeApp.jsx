@@ -156,6 +156,7 @@ export default function SwipeApp() {
       function repeat(transitionDuration = 350) {
         setTimeout(function () {
           setStep(2);
+          document.querySelector(`.person`).scrollTo({ top: 0 });
         }, transitionDuration);
         return;
       }
@@ -197,6 +198,7 @@ export default function SwipeApp() {
         .addEventListener(`click`, function () {
           setStep(1);
           restart(0);
+          document.querySelector(`.person`).scrollTo({ top: 0 });
         });
 
       document
@@ -224,13 +226,17 @@ export default function SwipeApp() {
 
   return (
     <div
-      className={`SwipeApp SwipeApp--step-${step} SwipeApp--aspect-ratio-${ASPECT_RATIO}`}>
+      className={`SwipeApp SwipeApp--step-${step} SwipeApp--aspect-ratio-${ASPECT_RATIO}
+      
+      ${step >= 2 && 'SwipeApp--nextStep'}
+      
+      `}>
       <>
         <div className="smartphone">
           <div className="screen">
             <div className="person">
               <figure
-                className="photo"
+                className="photo SwipeApp-swipable-photo"
                 style={{
                   background: `url("${user.picture}")
               center center/cover`,
@@ -242,42 +248,57 @@ export default function SwipeApp() {
                   </div>
                 </div>
               </figure>
-              {step === 2 && (
-                <div className={`secondStep secondStep--${like}`}>
-                  <h3>What made you {like}?</h3>
-                  <span className="text-h6">
-                    Remember: your feedback is valuable for this person.
-                  </span>
+              {step ===
+                2 && (
+                  <div className={`nextStep nextStep--${like}`}>
+                    <img
+                      className="nextStep-photo"
+                      src={user.picture}
+                      alt=""
+                    />
 
-                  <div className="secondStep-reasons">
-                    {like === "dislike"
-                      ? NEGATIVE_REASONS.map((e) => {
-                          return (
-                            <input
-                              key={e}
-                              type="checkbox"
-                              class="chip grow swatch"
-                              role="switch"
-                              value={`${e}`}
-                              aria-label={`${e}`}
-                            />
-                          );
-                        })
-                      : POSITIVE_REASONS.map((e) => {
-                          return (
-                            <input
-                              key={e}
-                              type="checkbox"
-                              class="chip grow swatch"
-                              role="switch"
-                              value={`${e}`}
-                              aria-label={`${e}`}
-                            />
-                          );
-                        })}
-                  </div>
-                </div>
-              )}
+                    <h3 className="nextStep-title title">
+                      What made you{" "}
+                      {like === "dislike"
+                        ? "swipe left"
+                        : like === "like"
+                        ? "swipe right"
+                        : "super like"}
+                      ?
+                    </h3>
+                    <span className="text-h6">
+                      Remember: your feedback is valuable for this person.
+                    </span>
+
+                    <div className="nextStep-reasons">
+                      {like === "dislike"
+                        ? NEGATIVE_REASONS.map((e) => {
+                            return (
+                              <input
+                                key={e}
+                                type="checkbox"
+                                class="chip grow swatch text-h6"
+                                role="switch"
+                                value={`${e}`}
+                                aria-label={`${e}`}
+                              />
+                            );
+                          })
+                        : POSITIVE_REASONS.map((e) => {
+                            return (
+                              <input
+                                key={e}
+                                type="checkbox"
+                                class="chip grow swatch"
+                                role="switch"
+                                value={`${e}`}
+                                aria-label={`${e}`}
+                              />
+                            );
+                          })}
+                    </div>
+                  </div>,
+                )}
             </div>
             <Progress step={step}></Progress>
             <div className="commands">
@@ -318,7 +339,13 @@ export default function SwipeApp() {
                 <div className="command">
                   <i className="fa fa-heart"></i>
                 </div>
-                <button className="submit">
+                <button
+                  className="submit"
+                  onClick={() => {
+                    if (step === 2) {
+                      setStep(3);
+                    }
+                  }}>
                   {step === 2 ? "NEXT" : "DONE"}
                 </button>
               </div>

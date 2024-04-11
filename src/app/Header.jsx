@@ -13,7 +13,7 @@ export default function Header() {
           <span className="icon-bar" />
         </button>
         <a href="#main" className="navbar-brand">
-          PictureFeedback
+          RateMyPicture
         </a>
         <div className="collapse navbar-collapse" id="main-navbar">
           <div className="sidebar-brand">
@@ -23,13 +23,13 @@ export default function Header() {
           </div>
           <ul className="nav navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link scrollto" href="#features">
-                Features
+              <a className="nav-link scrollto" href="#trial">
+                My pictures
               </a>
             </li>
             <li className="nav-item">
               <Link className="nav-link scrollto" href="/app">
-                App
+                Vote
               </Link>
             </li>
 

@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="row gap-y text-center text-md-left">
             <div className="col-md-4 mr-auto">
               <img src="img/logo-light.png" alt="" className="logo" />
-              <p>PictureFeedback</p>
+              <p>RateMyPicture.app</p>
             </div>
             <div className="col-md-4">
               <nav className="nav flex-column">
@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="row small">
             <div className="col-md-4">
               <p className="mt-2 mb-0 text-center text-md-left">
-                © {new Date().getFullYear()} <a href="#">PictureFeedback</a>.
+                © {new Date().getFullYear()} <a href="#">RateMyPicture.app</a>.
                 All Rights Reserved
               </p>
             </div>

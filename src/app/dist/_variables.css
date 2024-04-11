@@ -1,11 +1,10 @@
-/* Sizes */
-[id] .text-h6 {
+body .text-h6 {
   font-size: 14px;
 }
-[id] .text-h1 {
+body .text-h1 {
   font-size: 65px !important;
 }
-[id] .btn {
+body .btn {
   font-size: 16px;
   line-height: 1;
   padding-top: 14px;
