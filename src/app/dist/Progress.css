@@ -1,3 +1,16 @@
+body .text-h6 {
+  font-size: 14px;
+}
+body .text-h1 {
+  font-size: 65px !important;
+}
+body .btn {
+  font-size: 16px;
+  line-height: 1;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
 .Progress {
   width: 100%;
   position: relative;
@@ -43,7 +56,7 @@
   flex-direction: column;
   align-items: center;
 }
-.Progress .step > .step-number {
+.Progress .step .step-content {
   position: relative;
   display: flex;
   justify-content: center;
@@ -57,14 +70,37 @@
   border-radius: 50%;
   transition: all 0.3s cubic-bezier(0.44, 0.79, 1, 0.59);
 }
-.Progress .step-text {
+.Progress .step .step-text {
   font-size: 12px;
   text-align: center;
   width: 100%;
   margin-top: 7px;
 }
-.Progress .step.active .step-number {
+.Progress .step .step-checkmark {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.Progress .step.active .step-content {
   background: #1be4a1;
+  color: #fffafa;
+}
+.Progress .step--completed .step-number {
+  background: #1be4a1;
+  color: #fffafa;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  font-size: 0;
+}
+.Progress .step--completed .step-content {
+  background: #1be4a1;
+}
+.Progress .step--completed .step-checkmark,
+.Progress .step--completed .step-checkmark svg {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
   color: #fffafa;
 }
 .Progress button,

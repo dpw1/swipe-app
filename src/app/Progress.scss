@@ -4,6 +4,7 @@
   width: 100%;
   position: relative;
   margin-top: 20px;
+
   .container {
     max-width: 100%;
 
@@ -48,32 +49,66 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .step > .step-number {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #e1e5ea;
-    color: #a7bbc7;
-    border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.44, 0.79, 1, 0.59);
-  }
-  .step-text {
-    font-size: 12px;
-    text-align: center;
-    width: 100%;
-    margin-top: 7px;
+
+    .step-content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e1e5ea;
+      color: #a7bbc7;
+      border-radius: 50%;
+      transition: all 0.3s cubic-bezier(0.44, 0.79, 1, 0.59);
+    }
+
+    .step-text {
+      font-size: 12px;
+      text-align: center;
+      width: 100%;
+      margin-top: 7px;
+    }
+
+    .step-checkmark {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
   }
 
-  .step.active .step-number {
-    background: $green;
-    color: $white;
-    // transform: scale(1.2);
+  .step.active {
+    .step-content {
+      background: $green;
+      color: $white;
+    }
+  }
+
+  .step--completed {
+    .step-number {
+      background: $green;
+      color: $white;
+      height: 0;
+      width: 0;
+      opacity: 0;
+      font-size: 0;
+    }
+
+    .step-content {
+      background: $green;
+    }
+
+    .step-checkmark {
+      &,
+      svg {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        color: $white;
+      }
+    }
   }
 
   button,

@@ -3,12 +3,16 @@
 import React, { useEffect, useState } from "react";
 import "./SwipeApp.scss";
 
-import { sortEmojiArray } from "./utils";
+import { sortArrayAlphabetically } from "./utils";
 import Progress from "./Progress";
+import StarRating from "./StarRating";
 
 export default function SwipeApp() {
   const [step, setStep] = useState(1);
   const [like, setLike] = useState(null); // dislike, like, superlike
+  const [rate, setRate] = useState(1);
+  const [star, setStar] = useState(1);
+
   const ASPECT_RATIO = "square";
 
   const user = {
@@ -21,7 +25,10 @@ export default function SwipeApp() {
   const SWIPE_DISTANCE_Y = -72;
   const SWIPE_DISTANCE_X = 120;
 
-  const POSITIVE_REASONS = sortEmojiArray([
+  const POSITIVE_FEEDBACK_TEXT = `Remeber: your feedback is valuable.`;
+  const NEGATIVE_FEEDBACK_TEXT = `Remeber: treat others as you'd want to be treated.`;
+
+  const POSITIVE_REASONS = sortArrayAlphabetically([
     "😍 cute",
     "🥵 hot",
     "outfit",
@@ -33,7 +40,7 @@ export default function SwipeApp() {
     "social",
   ]);
 
-  const NEGATIVE_REASONS = sortEmojiArray([
+  const NEGATIVE_REASONS = sortArrayAlphabetically([
     "angle",
     "background",
     "blurry",
@@ -42,7 +49,7 @@ export default function SwipeApp() {
     "clothes",
     "bad image quality",
     "crop",
-    "dark",
+    "dark picture",
     "expression",
     "no eye contact",
     "filter/effects",
@@ -248,7 +255,7 @@ export default function SwipeApp() {
                   </div>
                 </div>
               </figure>
-              {step === 2 && (
+              {step === 2 ? (
                 <div className={`nextStep nextStep--${like}`}>
                   <img className="nextStep-photo" src={user.picture} alt="" />
 
@@ -261,38 +268,68 @@ export default function SwipeApp() {
                       : "super like"}
                     ?
                   </h3>
-                  <span className="text-h6">
-                    Remember: your feedback is valuable for this person.
+                  <span className="nextStep-subtitle text-h6">
+                    {like === "dislike"
+                      ? NEGATIVE_FEEDBACK_TEXT
+                      : POSITIVE_FEEDBACK_TEXT}
                   </span>
 
                   <div className="nextStep-reasons">
                     {like === "dislike"
-                      ? NEGATIVE_REASONS.map((e) => {
-                          return (
-                            <input
-                              key={e}
-                              type="checkbox"
-                              class="chip grow swatch text-h6"
-                              role="switch"
-                              value={`${e}`}
-                              aria-label={`${e}`}
-                            />
-                          );
-                        })
-                      : POSITIVE_REASONS.map((e) => {
-                          return (
-                            <input
-                              key={e}
-                              type="checkbox"
-                              class="chip grow swatch"
-                              role="switch"
-                              value={`${e}`}
-                              aria-label={`${e}`}
-                            />
-                          );
-                        })}
+                      ? NEGATIVE_REASONS.map((group) => (
+                          <div key={group.alphabet}>
+                            <p className="nextStep-letter text-h6">
+                              {group.alphabet.toUpperCase()}
+                            </p>
+                            <div className="words">
+                              {group.words.map((e, index) => (
+                                <input
+                                  key={e}
+                                  type="checkbox"
+                                  class="chip grow swatch"
+                                  role="switch"
+                                  value={`${e}`}
+                                  aria-label={`${e}`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        ))
+                      : POSITIVE_REASONS.map((group) => (
+                          <div key={group.alphabet}>
+                            <p className="nextStep-letter text-h6">
+                              {group.alphabet.toUpperCase()}
+                            </p>
+                            <div className="words">
+                              {group.words.map((e, index) => (
+                                <input
+                                  key={e}
+                                  type="checkbox"
+                                  class="chip grow swatch"
+                                  role="switch"
+                                  value={`${e}`}
+                                  aria-label={`${e}`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                   </div>
                 </div>
+              ) : (
+                step === 3 && (
+                  <div className="nextStep">
+                    <img className="nextStep-photo" src={user.picture} alt="" />
+
+                    <h3 className="nextStep-title title">
+                      How attractive would you consider this person?
+                    </h3>
+
+                    <div className="nextStep-pretty">
+                      <StarRating star={star} setStar={setStar}></StarRating>
+                    </div>
+                  </div>
+                )
               )}
             </div>
             <Progress step={step}></Progress>

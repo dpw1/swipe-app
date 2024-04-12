@@ -561,6 +561,8 @@
     border-radius: $image-border-radius;
   }
 
+  /* ## Step 2
+  ======================== */
   &--step-2 {
     .nextStep {
     }
@@ -582,6 +584,21 @@
       display: none;
     }
   }
+
+  .nextStep-pretty {
+    &,
+    input[type="range"] {
+      width: 100%;
+
+      &,
+      &:active,
+      &:focus,
+      &:hover {
+        outline: unset;
+        border: unset;
+      }
+    }
+  }
 }
 
 /* ## Next steps
@@ -594,8 +611,19 @@
     padding-top: 10px;
   }
 
+  .nextStep-letter {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
   .SwipeApp-swipable-photo {
     display: none;
+  }
+
+  .nextStep-subtitle {
+    margin-bottom: 10px;
+    display: block;
   }
 
   .nextStep-reasons {

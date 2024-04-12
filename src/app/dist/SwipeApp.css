@@ -17,6 +17,8 @@ body .btn {
   } */
   /* Actions */
   /* icon size and colors */
+  /* ## Step 2
+  ======================== */
   /* ## Step 3
   ======================== */
 }
@@ -495,6 +497,18 @@ body .btn {
 .SwipeApp--step-3 .command-votes > .command {
   display: none;
 }
+.SwipeApp .nextStep-pretty,
+.SwipeApp .nextStep-pretty input[type=range] {
+  width: 100%;
+}
+.SwipeApp .nextStep-pretty, .SwipeApp .nextStep-pretty:active, .SwipeApp .nextStep-pretty:focus, .SwipeApp .nextStep-pretty:hover,
+.SwipeApp .nextStep-pretty input[type=range],
+.SwipeApp .nextStep-pretty input[type=range]:active,
+.SwipeApp .nextStep-pretty input[type=range]:focus,
+.SwipeApp .nextStep-pretty input[type=range]:hover {
+  outline: unset;
+  border: unset;
+}
 
 /* ## Next steps
 ======================== */
@@ -504,8 +518,17 @@ body .btn {
   padding: 0 10px;
   padding-top: 10px;
 }
+.SwipeApp--nextStep .nextStep-letter {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}
 .SwipeApp--nextStep .SwipeApp-swipable-photo {
   display: none;
+}
+.SwipeApp--nextStep .nextStep-subtitle {
+  margin-bottom: 10px;
+  display: block;
 }
 .SwipeApp--nextStep .nextStep-reasons {
   height: 80%;

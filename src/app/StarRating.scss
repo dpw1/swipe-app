@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+$fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
+
+.StarRating {
+  .StarRating-star {
+    cursor: pointer;
+
+    * {
+      pointer-events: none;
+    }
+
+    & {
+      fill: #cccccc;
+    }
+
+    &[class*="active"] {
+      fill: nth($fillColorArray, 1);
+    }
+
+    @for $i from 1 through length($fillColorArray) {
+      &[class*="active"]:nth-child(#{$i}),
+      &[class*="hovered"]:nth-child(#{$i}),
+      &:nth-child(#{$i}):hover {
+        fill: nth($fillColorArray, $i) !important;
+      }
+    }
+  }
+}

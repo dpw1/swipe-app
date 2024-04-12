@@ -1,0 +1,16 @@
+body .text-h6 {
+  font-size: 14px;
+}
+body .text-h1 {
+  font-size: 65px !important;
+}
+body .btn {
+  font-size: 16px;
+  line-height: 1;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.StarRating {
+  background: red;
+}
