@@ -30,16 +30,10 @@ export function sortArrayAlphabetically(array) {
 }
 
 export function getMedia(path) {
-  if (window === undefined) {
-    return path;
+  if (typeof window === "undefined") {
+    const URL = `https://dpw1.github.io/swipe-app/${path}`;
+    return URL;
   }
 
-  const isProduction =
-    window.location.href.includes("github.io") ||
-    window.location.href.includes("RateMyPicture");
-
-  if (isProduction) {
-    return `${window.location.origin}/swipe-app/${path}`;
-  }
   return path;
 }
