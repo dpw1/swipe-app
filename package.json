@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-export-optimize-images",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,13 +13,16 @@
     "country-flags-svg": "^2.0.0-beta.1",
     "hammerjs": "^2.0.8",
     "next": "14.1.4",
+    "next-optimized-images": "^2.6.2",
     "react": "^18",
     "react-dom": "^18",
     "react-simple-star-rating": "^5.1.7",
-    "sass": "^1.72.0"
+    "sass": "^1.72.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "next-export-optimize-images": "^4.3.1"
   }
 }

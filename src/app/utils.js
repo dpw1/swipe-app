@@ -30,10 +30,14 @@ export function sortArrayAlphabetically(array) {
 }
 
 export function getMedia(path) {
-  if (typeof window === "undefined") {
-    const URL = `https://dpw1.github.io/swipe-app/${path}`;
-    return URL;
+  if (isDevEnvironment()) {
+    return path;
   }
 
-  return path;
+  const URL = `https://dpw1.github.io/swipe-app/${path}`;
+  return URL;
+}
+
+function isDevEnvironment() {
+  return process.env.NODE_ENV === "development";
 }

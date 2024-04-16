@@ -12,4 +12,23 @@
     max-width: 100%;
     transform: scale(1.08);
   }
+
+  .Hero-thumbnail {
+    transform: scale(1.08);
+    transition: $basic-transition;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    opacity: 1;
+  }
+
+  .Hero-thumbnail--invisible {
+    opacity: 0;
+    pointer-events: none;
+  }
 }

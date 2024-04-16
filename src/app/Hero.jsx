@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import Header from "./Header";
 import { getMedia } from "./utils";
 
+import Image from "next-export-optimize-images/image";
+
 export default function Hero() {
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <section className="Hero header alter2-header section" id="home">
       <Header></Header>
@@ -123,6 +126,11 @@ export default function Hero() {
                   loop
                   muted
                   autoPlay
+                  preload={"auto"}
+                  poster={getMedia(`/video_thumbnail.png`)}
+                  onCanPlayThrough={() => {
+                    setIsLoading(false);
+                  }}
                   src={getMedia(`/videos/swipe-me-vid-1.webm`)}></video>
               </div>
               <div className="notch" />
