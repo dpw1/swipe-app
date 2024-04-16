@@ -30,17 +30,16 @@ export function sortArrayAlphabetically(array) {
 }
 
 export function getMedia(path) {
-  try {
-    const isProduction =
-      window.location.href.includes("github.io") ||
-      window.location.href.includes("RateMyPicture");
-
-    if (isProduction) {
-      return `${window.location.origin}/swipe-app/${path}`;
-    } else {
-      return path;
-    }
-  } catch (err) {
+  if (window === undefined) {
     return path;
   }
+
+  const isProduction =
+    window.location.href.includes("github.io") ||
+    window.location.href.includes("RateMyPicture");
+
+  if (isProduction) {
+    return `${window.location.origin}/swipe-app/${path}`;
+  }
+  return path;
 }
