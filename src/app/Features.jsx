@@ -1,7 +1,41 @@
 import React, { useEffect } from "react";
 import "./Features.scss";
+import { findFlagUrlByCountryName } from "country-flags-svg";
 
 export default function Features() {
+  const results = [
+    {
+      id: 123,
+      location: findFlagUrlByCountryName("United States"),
+      age: 25,
+      gender: "male",
+      swipe: "like",
+      swatches: ["😍 cute", "outfit"],
+      rating: 4,
+      notes: `Nice necklace!`,
+    },
+    {
+      id: 123,
+      location: findFlagUrlByCountryName("United States"),
+      age: 23,
+      gender: "male",
+      swipe: "like",
+      swatches: [""],
+      rating: 4,
+      notes: ``,
+    },
+    {
+      id: 123,
+      location: findFlagUrlByCountryName("United States"),
+      age: 23,
+      gender: "male",
+      swipe: "dislike",
+      swatches: ["looks fake (AI)"],
+      rating: 2,
+      notes: ``,
+    },
+  ];
+
   return (
     <>
       {/* Features you can't miss */}
@@ -44,9 +78,7 @@ export default function Features() {
                     <path d="M691.2256 574.848c-7.2192-2.628267-15.9744-3.362133-21.418667-3.549867 3.8656-13.7472 2.705067-28.2624-3.387733-41.344-6.741333-14.464-18.705067-25.429333-33.698133-30.890667-12.885333-4.676267-27.178667-4.667733-39.637333-0.418133 0.2816-8.132267-1.006933-16.0768-3.857067-23.3984-5.649067-14.472533-17.0496-25.463467-32.093867-30.933333-15.095467-5.486933-31.547733-4.3008-44.9536 2.397867l48.861867-150.8096c12.475733-34.286933-2.261333-68.923733-34.269867-80.5888-6.7584-2.4576-13.6704-3.703467-20.539733-3.703467-25.344 0-47.914667 17.041067-57.6 43.665067L360.669867 514.039467c-7.799467 1.169067-19.8912 4.036267-36.6848 10.9056-57.941333 23.7312-107.016533 114.2528-84.804267 206.190933 24.712533 102.382933 76.032 160.904533 171.613867 195.694933 26.837333 9.770667 52.053333 14.72 74.9312 14.72 56.695467 0 92.1856-29.1072 123.6736-58.922667 43.264-40.96 113.339733-232.593067 116.3008-240.7424C735.0272 616.251733 718.9248 584.925867 691.2256 574.848zM701.653333 633.130667c-19.6096 53.8624-77.550933 200.328533-109.8496 230.903467-28.9024 27.3664-58.760533 51.9168-106.077867 51.9168-19.8912 0-42.154667-4.437333-66.184533-13.175467-87.68-31.906133-132.736-83.3792-155.485867-177.6384-13.2608-54.903467 7.2704-150.946133 69.623467-176.494933 6.7584-2.7648 12.5184-4.753067 17.314133-6.178133l-28.731733 84.539733c-2.2784 6.690133 1.3056 13.969067 8.004267 16.238933 6.698667 2.269867 13.969067-1.314133 16.2304-8.004267l126.276267-371.4816c7.4496-20.471467 26.6752-31.163733 45.243733-24.3968 18.901333 6.8864 26.7008 26.530133 18.824533 48.213333l-73.7024 227.438933c-2.0224 6.2464 1.006933 13.013333 7.0144 15.658667 6.024533 2.653867 13.047467 0.315733 16.290133-5.4016l19.217067-33.8688c0.349867-0.622933 0.648533-1.271467 0.896-1.9456 6.468267-17.800533 24.746667-27.306667 41.8048-21.0944 8.1408 2.961067 14.0288 8.558933 16.9984 16.1792 3.0208 7.739733 2.850133 17.032533-0.469333 26.1632l-8.7296 23.995733c-0.008533 0.017067-0.017067 0.034133-0.017067 0.0512-2.414933 6.647467 1.006933 13.994667 7.645867 16.4096 6.647467 2.414933 13.986133-1.006933 16.401067-7.6544 4.8896-13.431467 17.783467-22.468267 32.085333-22.468267 3.968 0 7.893333 0.699733 11.665067 2.0736 8.567467 3.114667 15.4112 9.3952 19.259733 17.646933s4.258133 17.536 1.143467 26.103467l-18.9696 52.1216c-2.414933 6.6304 1.006933 13.986133 7.645867 16.401067 6.6048 2.414933 13.9776-0.9984 16.401067-7.645867l11.144533-30.600533c1.476267-0.170667 3.456-0.298667 5.956267-0.298667 6.144 0 12.552533 0.827733 15.940267 2.056533C696.832 604.1344 706.1504 620.765867 701.653333 633.130667z" />
                   </svg>
                 </span>
-                <h2 className="heading-line">
-                  More likes, more right swipes, less headache
-                </h2>
+                <h2 className="heading-line">How it works</h2>
               </div>
               <ul className="list-unstyled">
                 <li className="media flex-column flex-md-row text-center text-md-left">
@@ -54,8 +86,8 @@ export default function Features() {
                   <div className="media-body mt-3 mt-md-0">
                     <h5 className="bold mt-0 mb-1">1. Upload your picture</h5>
                     <p className="m-0">
-                      Choose your best picture Lorem ipsum dolor sit amet
-                      consectetur adipisicing elit. Neque, nulla!
+                      Choose the picture you`d like to test. We take privacy
+                      very seriously - your media is safe with us.
                     </p>
                   </div>
                 </li>
@@ -63,12 +95,11 @@ export default function Features() {
                   <i className="mx-auto mr-md-3 mx-auto mr-md-3 accent pe pe-7s-users pe-3x" />
                   <div className="media-body mt-3 mt-md-0">
                     <h5 className="bold mt-0 mb-1">
-                      2. Vote on other people photos
+                      2. Filter by age, location and gender
                     </h5>
                     <p className="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet aut autem eum laudantium quas recusandae repellendus
-                      voluptate.
+                      Customize your audience by selecting filters such as age,
+                      gender, and location for the anonymous reviewers.
                     </p>
                   </div>
                 </li>
@@ -77,9 +108,8 @@ export default function Features() {
                   <div className="media-body mt-3 mt-md-0">
                     <h5 className="bold mt-0 mb-1">3. Wait for your results</h5>
                     <p className="m-0">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Amet aut autem eum laudantium quas recusandae repellendus
-                      voluptate.
+                      Sit back and wait for users from around the world to
+                      review and vote on your picture.
                     </p>
                   </div>
                 </li>
@@ -107,7 +137,64 @@ export default function Features() {
               </figure>
               <div className="iphone light">
                 <div className="screen shadow-box">
-                  <img src="img/screens/app/6.png" alt="..." />
+                  <div className="Features-reviewed">
+                    <figure className="Features-reviewed-figure">
+                      <img
+                        className="Features-image"
+                        src={"/woman.jpg"}
+                        alt=""
+                      />
+                    </figure>
+
+                    <div className="Features-reviewed-data">
+                      <p>23 votes, 3.7 rating</p>
+                      <ul>
+                        {results.map((e) => {
+                          return (
+                            <li
+                              key={e.id}
+                              className={`Features-item Features-item--${
+                                e.swipe === "dislike" ? "dislike" : "like"
+                              }`}>
+                              <div className="Features-top">
+                                <img
+                                  className="Features-flag"
+                                  src={e.location}
+                                  alt=""
+                                />
+                                <div className="Features-info">
+                                  {e.gender}, {e.age}
+                                </div>
+                                <div className="Features-rating">
+                                  {Array.from({ length: e.rating }).map(
+                                    (_, index) => {
+                                      return (
+                                        <svg
+                                          key={index}
+                                          className="StarIcon"
+                                          stroke="currentColor"
+                                          fill="currentColor"
+                                          strokeWidth={0}
+                                          viewBox="0 0 24 24"
+                                          width={50}
+                                          height={50}
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                      );
+                                    },
+                                  )}
+                                </div>
+                              </div>
+                              <div className="Features-bottom">
+                                <div className="Features-swatches"></div>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div className="notch" />
               </div>

@@ -31,7 +31,7 @@ export default function Home() {
     <main className={lato.className}>
       <Hero></Hero>
       <Features></Features>
-      {/* <About></About> */}
+      <About></About>
       <EmailSignup></EmailSignup>
       <Footer></Footer>
     </main>

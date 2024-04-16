@@ -1,15 +1,47 @@
-/* Sizes */
-.text-h6 {
+/* Media query */
+body .text-h6 {
   font-size: 14px;
 }
-
-.text-h1 {
+body .text-h1 {
   font-size: 65px !important;
 }
-
-.btn {
+@media (max-width: 749px) {
+  body .heading-line,
+  body .text-h2 {
+    font-size: calc(1.475rem + 2.7vw) !important;
+  }
+}
+body .btn {
   font-size: 16px;
   line-height: 1;
   padding-top: 14px;
   padding-bottom: 14px;
+}
+
+.StarIcon {
+  cursor: pointer;
+}
+.StarIcon * {
+  pointer-events: none;
+}
+.StarIcon {
+  fill: #cccccc;
+}
+.StarIcon[class*=active] {
+  fill: #f17a45;
+}
+.StarIcon[class*=active]:nth-child(1), .StarIcon[class*=hovered]:nth-child(1), .StarIcon:nth-child(1):hover {
+  fill: #f17a45 !important;
+}
+.StarIcon[class*=active]:nth-child(2), .StarIcon[class*=hovered]:nth-child(2), .StarIcon:nth-child(2):hover {
+  fill: #f19745 !important;
+}
+.StarIcon[class*=active]:nth-child(3), .StarIcon[class*=hovered]:nth-child(3), .StarIcon:nth-child(3):hover {
+  fill: #f1a545 !important;
+}
+.StarIcon[class*=active]:nth-child(4), .StarIcon[class*=hovered]:nth-child(4), .StarIcon:nth-child(4):hover {
+  fill: #f1b345 !important;
+}
+.StarIcon[class*=active]:nth-child(5), .StarIcon[class*=hovered]:nth-child(5), .StarIcon:nth-child(5):hover {
+  fill: #f1d045 !important;
 }

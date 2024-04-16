@@ -1,12 +1,27 @@
 @import "./variables.scss";
 
-// .text-h1 {
-//   font-size: 65px !important;
-// }
+$fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
 
-// .btn {
-//   font-size: 16px;
-//   line-height: 1;
-//   padding-top: 14px;
-//   padding-bottom: 14px;
-// }
+.StarIcon {
+  cursor: pointer;
+
+  * {
+    pointer-events: none;
+  }
+
+  & {
+    fill: #cccccc;
+  }
+
+  &[class*="active"] {
+    fill: nth($fillColorArray, 1);
+  }
+
+  @for $i from 1 through length($fillColorArray) {
+    &[class*="active"]:nth-child(#{$i}),
+    &[class*="hovered"]:nth-child(#{$i}),
+    &:nth-child(#{$i}):hover {
+      fill: nth($fillColorArray, $i) !important;
+    }
+  }
+}

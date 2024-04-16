@@ -12,6 +12,9 @@ body .btn {
 }
 
 .SwipeApp {
+  height: 100vh;
+  background-color: #4158d0;
+  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
   /* .screen footer .fa-reorder {
     transform: rotate(90deg);
   } */
@@ -487,6 +490,15 @@ body .btn {
   height: 320px;
   object-fit: cover;
   border-radius: 10px;
+}
+.SwipeApp .nextStep-write {
+  max-width: 100%;
+}
+.SwipeApp .nextStep-write textarea {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 20px;
+  height: 100px;
 }
 .SwipeApp .command--redo > * {
   pointer-events: none;

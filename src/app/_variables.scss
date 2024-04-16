@@ -3,10 +3,21 @@ $white: #fffafa;
 $gray-light: #e1e5ea;
 $gray-medium: #a7bbc7;
 $red: #fd5068;
+$black: #27333e;
+
+$text-color-dark: $black;
 
 $image-border-radius: 10px;
 
 $basic-transition: all 0.3s cubic-bezier(0.44, 0.79, 1, 0.59);
+
+/* Media query */
+
+$lg: 1023px;
+$md: 991px;
+$xs: 749px;
+$xxs: 600px;
+$xxxs: 400px;
 
 body {
   .text-h6 {
@@ -15,6 +26,13 @@ body {
 
   .text-h1 {
     font-size: 65px !important;
+  }
+
+  .heading-line,
+  .text-h2 {
+    @media (max-width: $xs) {
+      font-size: calc(1.475rem + 2.7vw) !important;
+    }
   }
 
   .btn {

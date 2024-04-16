@@ -1,7 +1,22 @@
+@import "./variables.scss";
+
 .Header {
   font-size: 80px;
+  height: 50px;
+  min-height: unset;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  * {
+    color: $text-color-dark !important;
+  }
 
   .container {
     padding-top: 0;
+    padding-bottom: 0;
   }
 }

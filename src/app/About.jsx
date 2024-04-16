@@ -32,26 +32,27 @@ export default function About() {
           <div className="row">
             <div className="col-md-6">
               <h1 className="extra-bold display-md-3 font-md">
-                A new way
+                More likes
                 <span className="d-block display-md-4 light">
-                  to showcase your app
+                  less time wasted
                 </span>
               </h1>
               <p className="lead">
-                Your amazing product deserves an outstanding way to show it.
-                Dashcore will provide you with a quality template no matter what
-                your idea is about.
+                Struggling to score matches on dating apps or just not clicking
+                with folks? Understanding how strangers view your pics can be a
+                game-changer.
+              </p>
+
+              <p className="lead">
+                Even tiny tweaks can lead to big wins. Give your profile a
+                makeover and see it in a whole new light, making those first
+                impressions count!
               </p>
               <nav className="nav mt-5">
                 <a
                   href="#"
                   className="nav-link mr-3 btn btn btn-rounded btn-contrast">
-                  <i className="fas fa-tag mr-3" /> Plans &amp; pricing{" "}
-                </a>
-                <a
-                  href="#"
-                  className="nav-link btn btn-rounded btn-outline-contrast">
-                  Start now
+                  <i className="fas fa-heart mr-3" /> Join Now
                 </a>
               </nav>
             </div>

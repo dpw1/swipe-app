@@ -101,7 +101,9 @@ export default function StarRating(props) {
             <>
               <svg
                 key={i}
-                className={`StarRating-star ${
+                className={`
+                StarIcon
+                StarRating-star ${
                   value <= active ? "StarRating-star--active" : ""
                 }`}
                 stroke="currentColor"

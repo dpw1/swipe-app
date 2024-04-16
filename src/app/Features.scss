@@ -1,2 +1,46 @@
 .Features {
+  .iphone {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  .Features-item--like {
+    background: #37bd74;
+  }
+
+  .Features-item--dislike {
+    background: #f29b9b;
+  }
+
+  .Features-flag {
+    width: 25px;
+    border: unset;
+    box-shadow: unset !important;
+    margin-right: 10px;
+  }
+
+  .Features-image {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    margin: auto;
+
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    color: #eee;
+    box-shadow: 0 2px 7px 0 rgba(136, 136, 136, 0.7);
+    cursor: -webkit-grab;
+    cursor: grab;
+    transition: 300ms;
+  }
+
+  .Features-top {
+    display: flex;
+  }
 }

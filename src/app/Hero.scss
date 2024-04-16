@@ -1,4 +1,15 @@
+@import "./variables.scss";
+
 .Hero {
   //   background: red;
   font-size: 80px;
+
+  .screen {
+    overflow: hidden;
+  }
+
+  video {
+    max-width: 100%;
+    transform: scale(1.08);
+  }
 }

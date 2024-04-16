@@ -1,6 +1,15 @@
 @import "./variables.scss";
 
 .SwipeApp {
+  height: 100vh;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+
   .smartphone {
     display: flex;
     justify-content: flex-start;
@@ -559,6 +568,16 @@
     height: 320px;
     object-fit: cover;
     border-radius: $image-border-radius;
+  }
+
+  .nextStep-write {
+    max-width: 100%;
+    textarea {
+      max-width: 100%;
+      width: 100%;
+      margin-top: 20px;
+      height: 100px;
+    }
   }
 
   /* ## Step 2

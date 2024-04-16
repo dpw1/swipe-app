@@ -38,6 +38,10 @@ export default function SwipeApp() {
     "smile",
     "hair",
     "social",
+    "eyes",
+    "well-groomed",
+    "look interesting",
+    "height",
   ]);
 
   const NEGATIVE_REASONS = sortArrayAlphabetically([
@@ -54,6 +58,7 @@ export default function SwipeApp() {
     "no eye contact",
     "filter/effects",
     "hair",
+    "🤖 looks fake (AI)",
     "multiple people",
     "pose",
     "posture",
@@ -64,7 +69,7 @@ export default function SwipeApp() {
     "sunglasses",
     "too close-up",
     "too far away",
-    "too much skin",
+    "too much skin showing",
   ]);
 
   useEffect(() => {
@@ -327,6 +332,16 @@ export default function SwipeApp() {
 
                     <div className="nextStep-pretty">
                       <StarRating star={star} setStar={setStar}></StarRating>
+                    </div>
+
+                    <div className="nextStep-write">
+                      <textarea
+                        className="form-control-sm"
+                        name=""
+                        placeholder={"Additional notes"}
+                        id=""
+                        cols="30"
+                        rows="10"></textarea>
                     </div>
                   </div>
                 )
