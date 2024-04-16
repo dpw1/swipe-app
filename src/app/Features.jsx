@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Features.scss";
 import { findFlagUrlByCountryName } from "country-flags-svg";
+import { getMedia } from "./utils";
 
 export default function Features() {
   const results = [
@@ -141,7 +142,7 @@ export default function Features() {
                     <figure className="Features-reviewed-figure">
                       <img
                         className="Features-image"
-                        src={"/woman.jpg"}
+                        src={getMedia("/woman.jpg")}
                         alt=""
                       />
                     </figure>

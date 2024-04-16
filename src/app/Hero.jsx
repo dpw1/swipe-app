@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Hero.scss";
 import Header from "./Header";
+import { getMedia } from "./utils";
 
 export default function Hero() {
   return (
@@ -122,7 +123,7 @@ export default function Hero() {
                   loop
                   muted
                   autoPlay
-                  src={`/videos/swipe-me-vid-1.webm`}></video>
+                  src={getMedia(`/videos/swipe-me-vid-1.webm`)}></video>
               </div>
               <div className="notch" />
             </div>
