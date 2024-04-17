@@ -45,6 +45,6 @@ body .btn {
   .faq::before {
     z-index: 0 !important;
     top: -165px !important;
-    transform: rotate(31deg);
+    transform: scale(2) rotate(31deg);
   }
 }
