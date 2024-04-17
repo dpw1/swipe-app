@@ -3,8 +3,6 @@ import "./Hero.scss";
 import Header from "./Header";
 import { getMedia } from "./utils";
 
-import Image from "next-export-optimize-images/image";
-
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(true);
   return (
