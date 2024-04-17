@@ -41,8 +41,10 @@ body .btn {
     padding-top: 0;
   }
 }
-.faq::before {
-  z-index: 0 !important;
-  top: -165px !important;
-  transform: rotate(31deg);
+@media (max-width: 749px) {
+  .faq::before {
+    z-index: 0 !important;
+    top: -165px !important;
+    transform: rotate(31deg);
+  }
 }
