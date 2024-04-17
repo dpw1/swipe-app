@@ -61,29 +61,11 @@ export default function About() {
       </header>
       {/* Isometric Mockups */}
       <section className="isometric-mockups">
-        <div className="tablet ipad landscape">
-          <div className="screen">
-            <img src="img/screens/tablet/1.png" alt="..." />
-          </div>
-          <div className="button" />
-        </div>
         <div className="iphone light phone-big">
           <div className="screen">
             <img src="img/screens/app/4.png" alt="..." />
           </div>
           <div className="notch" />
-        </div>
-        <div className="iphone light phone-small">
-          <div className="screen">
-            <img src="img/screens/app/2.png" alt="..." />
-          </div>
-          <div className="notch" />
-        </div>
-        <div className="tablet ipad portrait">
-          <div className="screen">
-            <img src="img/screens/tablet/2.png" alt="..." />
-          </div>
-          <div className="button" />
         </div>
       </section>
     </section>

@@ -115,6 +115,8 @@
 
   .Features-rating {
     margin-left: 10px;
+    width: -webkit-fill-available;
+
     svg {
       width: 27px;
       pointer-events: none;

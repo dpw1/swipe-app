@@ -9,6 +9,7 @@ import About from "./About";
 import Features from "./Features";
 import Footer from "./Footer";
 import EmailSignup from "./EmailSignup";
+import FAQ from "./FAQ";
 
 const lato = Lato({
   weight: ["400", "700", "900"],
@@ -32,6 +33,7 @@ export default function Home() {
       <Hero></Hero>
       <Features></Features>
       <About></About>
+      <FAQ></FAQ>
       <EmailSignup></EmailSignup>
       <Footer></Footer>
     </main>

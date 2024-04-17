@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+.faq {
+  .container {
+    @media (min-width: $md) {
+      padding-top: 0;
+    }
+  }
+
+  &::before {
+    z-index: 0 !important;
+    top: -165px !important;
+    transform: rotate(31deg);
+  }
+}

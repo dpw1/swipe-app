@@ -23,6 +23,18 @@ body .btn {
   padding-top: 14px;
   padding-bottom: 14px;
 }
+@media (max-width: 749px) {
+  body .text-center-mobile {
+    display: block;
+    text-align: center;
+  }
+}
+@media (max-width: 749px) {
+  body .text-center-mobile .heading-line:after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .Features .iphone {
   max-width: 70%;
@@ -112,6 +124,7 @@ body .btn {
 }
 .Features .Features-rating {
   margin-left: 10px;
+  width: -webkit-fill-available;
 }
 .Features .Features-rating svg {
   width: 27px;
