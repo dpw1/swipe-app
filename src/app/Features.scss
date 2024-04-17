@@ -1,7 +1,25 @@
+@import "./variables.scss";
+
 .Features {
   .iphone {
-    max-width: 100%;
+    max-width: 70%;
     width: 100%;
+    min-width: 340px;
+  }
+
+  .section-heading {
+    @media (max-width: $xs) {
+      text-align: center;
+    }
+  }
+  .media {
+    @media (max-width: $xs) {
+      text-align: center;
+    }
+  }
+
+  .screen {
+    padding: 0 10px;
   }
 
   ul {
@@ -9,19 +27,63 @@
     text-align: center;
   }
 
+  .Features-item {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: $image-border-radius;
+  }
+
+  .Features-reviewed-title {
+    text-align: center;
+    display: flex;
+
+    span {
+      padding: 0px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & > span:nth-child(1) {
+      color: $white;
+      background: $black;
+      width: 50%;
+      border-top-left-radius: $image-border-radius;
+      border-bottom-left-radius: $image-border-radius;
+    }
+
+    & > span:nth-child(2) {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      width: 50%;
+      border-top-right-radius: $image-border-radius;
+      border-bottom-right-radius: $image-border-radius;
+    }
+  }
+
+  .Features-item + .Features-item {
+    margin-top: 10px;
+  }
   .Features-item--like {
-    background: #37bd74;
+    // background: #37bd74;
   }
 
   .Features-item--dislike {
-    background: #f29b9b;
+    // background: #f29b9b;
+  }
+
+  .Features-average-rating {
+    width: 28px !important;
+    pointer-events: none;
+    margin-left: 5px;
   }
 
   .Features-flag {
-    width: 25px;
+    width: 40px;
     border: unset;
     box-shadow: unset !important;
     margin-right: 10px;
+  }
+
+  .Features-info {
   }
 
   .Features-image {
@@ -42,5 +104,52 @@
 
   .Features-top {
     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Features-swipe {
+    width: 55px;
+    box-shadow: none !important;
+  }
+
+  .Features-rating {
+    margin-left: 10px;
+    svg {
+      width: 27px;
+      pointer-events: none;
+
+      @media (max-width: $xxs) {
+        width: 19px;
+      }
+    }
+    &--1 {
+      svg:nth-child(2),
+      svg:nth-child(3),
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+
+    &--2 {
+      svg:nth-child(3),
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+
+    &--3 {
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+    &--4 {
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
   }
 }

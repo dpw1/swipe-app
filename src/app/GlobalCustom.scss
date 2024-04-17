@@ -10,7 +10,7 @@ $fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
   }
 
   & {
-    fill: #cccccc;
+    fill: $gray-very-light;
   }
 
   &[class*="active"] {
@@ -18,9 +18,10 @@ $fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
   }
 
   @for $i from 1 through length($fillColorArray) {
-    &[class*="active"]:nth-child(#{$i}),
-    &[class*="hovered"]:nth-child(#{$i}),
-    &:nth-child(#{$i}):hover {
+    @at-root .Features-rating svg:nth-child(#{$i}),
+      &[class*="active"]:nth-child(#{$i}),
+      &[class*="hovered"]:nth-child(#{$i}),
+      &:nth-child(#{$i}):hover {
       fill: nth($fillColorArray, $i) !important;
     }
   }

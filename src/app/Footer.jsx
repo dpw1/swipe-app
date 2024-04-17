@@ -7,7 +7,7 @@ export default function Footer() {
       {/* Footer */}
       <footer className="site-footer section bg-dark text-contrast edge top-left">
         <div className="container py-3">
-          <div className="row gap-y text-center text-md-left">
+          {/* <div className="row gap-y text-center text-md-left">
             <div className="col-md-4 mr-auto">
               <img src="img/logo-light.png" alt="" className="logo" />
               <p>RateMyPicture.app</p>
@@ -50,8 +50,8 @@ export default function Footer() {
                   Search
                 </a>
               </nav>
-            </div> */}
-            {/* <div className="col-md-2">
+            </div> 
+         <div className="col-md-2">
               <h6 className="py-2 small">Follow us</h6>
               <nav className="nav justify-content-around">
                 <a
@@ -67,8 +67,8 @@ export default function Footer() {
                   <i className="fab fa-instagram" />
                 </a>
               </nav>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
           <hr className="mt-5 op-5" />
           <div className="row small">
             <div className="col-md-4">

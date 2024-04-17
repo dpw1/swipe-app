@@ -6,7 +6,7 @@ import { getMedia } from "./utils";
 export default function Features() {
   const results = [
     {
-      id: 123,
+      id: 1,
       location: findFlagUrlByCountryName("United States"),
       age: 25,
       gender: "male",
@@ -16,7 +16,7 @@ export default function Features() {
       notes: `Nice necklace!`,
     },
     {
-      id: 123,
+      id: 2,
       location: findFlagUrlByCountryName("United States"),
       age: 23,
       gender: "male",
@@ -26,7 +26,7 @@ export default function Features() {
       notes: ``,
     },
     {
-      id: 123,
+      id: 3,
       location: findFlagUrlByCountryName("United States"),
       age: 23,
       gender: "male",
@@ -35,7 +35,26 @@ export default function Features() {
       rating: 2,
       notes: ``,
     },
+    {
+      id: 4,
+      location: findFlagUrlByCountryName("Sweden"),
+      age: 28,
+      gender: "male",
+      swipe: "super like",
+      swatches: ["eyes"],
+      rating: 5,
+      notes: ``,
+    },
   ];
+
+  const summary = {
+    votes: results.length,
+    averageRating: parseFloat(
+      (
+        results.reduce((sum, result) => sum + result.rating, 0) / results.length
+      ).toFixed(1),
+    ),
+  };
 
   return (
     <>
@@ -61,7 +80,7 @@ export default function Features() {
         <div className="container">
           <div className="row gap-y">
             <div className="col-md-6 order-md-last">
-              <div className="section-heading">
+              <div className="section-heading text-center-mobile">
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -82,13 +101,12 @@ export default function Features() {
                 <h2 className="heading-line">How it works</h2>
               </div>
               <ul className="list-unstyled">
-                <li className="media flex-column flex-md-row text-center text-md-left">
+                <li className="media flex-column flex-md-row text-center text-md-left text-center-mobile">
                   <i className="mx-auto mr-md-3 mx-auto mr-md-3 accent pe pe-7s-mail pe-3x" />
                   <div className="media-body mt-3 mt-md-0">
                     <h5 className="bold mt-0 mb-1">1. Upload your picture</h5>
                     <p className="m-0">
-                      Choose the picture you`d like to test. We take privacy
-                      very seriously - your media is safe with us.
+                      Choose the picture you&apos;d like to test.
                     </p>
                   </div>
                 </li>
@@ -148,9 +166,35 @@ export default function Features() {
                     </figure>
 
                     <div className="Features-reviewed-data">
-                      <p>23 votes, 3.7 rating</p>
+                      <p className="Features-reviewed-title">
+                        <span>{summary.votes} votes</span>
+                        <span>
+                          {summary.averageRating}{" "}
+                          <svg
+                            className="StarIcon Features-average-rating"
+                            stroke="currentColor"
+                            fill="currentColor"
+                            strokeWidth={0}
+                            viewBox="0 0 24 24"
+                            width={50}
+                            height={50}
+                            value={4}
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                        </span>
+                      </p>
                       <ul>
                         {results.map((e) => {
+                          function getImage() {
+                            if (e.swipe === "dislike") {
+                              return getMedia(`/icons/swipe-left-icon.svg`);
+                            } else if (e.swipe === "like") {
+                              return getMedia(`/icons/swipe-right-icon.svg`);
+                            }
+
+                            return getMedia(`/icons/swipe-up-icon.svg`);
+                          }
                           return (
                             <li
                               key={e.id}
@@ -159,32 +203,38 @@ export default function Features() {
                               }`}>
                               <div className="Features-top">
                                 <img
-                                  className="Features-flag"
+                                  className="Features-swipe"
+                                  src={getImage()}
+                                  alt=""
+                                />
+
+                                <img
+                                  className="Features-flag lazyload"
                                   src={e.location}
                                   alt=""
                                 />
-                                <div className="Features-info">
+                                <div className="Features-info text-xs">
                                   {e.gender}, {e.age}
                                 </div>
-                                <div className="Features-rating">
-                                  {Array.from({ length: e.rating }).map(
-                                    (_, index) => {
-                                      return (
-                                        <svg
-                                          key={index}
-                                          className="StarIcon"
-                                          stroke="currentColor"
-                                          fill="currentColor"
-                                          strokeWidth={0}
-                                          viewBox="0 0 24 24"
-                                          width={50}
-                                          height={50}
-                                          xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                        </svg>
-                                      );
-                                    },
-                                  )}
+                                <div
+                                  className={`Features-rating Features-rating--${e.rating}`}>
+                                  {Array.from({ length: 5 }).map((_, index) => {
+                                    return (
+                                      <svg
+                                        key={index}
+                                        className="StarIcon"
+                                        stroke="currentColor"
+                                        fill="currentColor"
+                                        strokeWidth={0}
+                                        viewBox="0 0 24 24"
+                                        width={50}
+                                        height={50}
+                                        value={4}
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                      </svg>
+                                    );
+                                  })}
                                 </div>
                               </div>
                               <div className="Features-bottom">

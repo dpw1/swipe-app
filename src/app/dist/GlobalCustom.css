@@ -30,18 +30,22 @@ body .btn {
 .StarIcon[class*=active] {
   fill: #f17a45;
 }
-.StarIcon[class*=active]:nth-child(1), .StarIcon[class*=hovered]:nth-child(1), .StarIcon:nth-child(1):hover {
+.Features-rating svg:nth-child(1), .StarIcon[class*=active]:nth-child(1), .StarIcon[class*=hovered]:nth-child(1), .StarIcon:nth-child(1):hover {
   fill: #f17a45 !important;
 }
-.StarIcon[class*=active]:nth-child(2), .StarIcon[class*=hovered]:nth-child(2), .StarIcon:nth-child(2):hover {
+
+.Features-rating svg:nth-child(2), .StarIcon[class*=active]:nth-child(2), .StarIcon[class*=hovered]:nth-child(2), .StarIcon:nth-child(2):hover {
   fill: #f19745 !important;
 }
-.StarIcon[class*=active]:nth-child(3), .StarIcon[class*=hovered]:nth-child(3), .StarIcon:nth-child(3):hover {
+
+.Features-rating svg:nth-child(3), .StarIcon[class*=active]:nth-child(3), .StarIcon[class*=hovered]:nth-child(3), .StarIcon:nth-child(3):hover {
   fill: #f1a545 !important;
 }
-.StarIcon[class*=active]:nth-child(4), .StarIcon[class*=hovered]:nth-child(4), .StarIcon:nth-child(4):hover {
+
+.Features-rating svg:nth-child(4), .StarIcon[class*=active]:nth-child(4), .StarIcon[class*=hovered]:nth-child(4), .StarIcon:nth-child(4):hover {
   fill: #f1b345 !important;
 }
-.StarIcon[class*=active]:nth-child(5), .StarIcon[class*=hovered]:nth-child(5), .StarIcon:nth-child(5):hover {
+
+.Features-rating svg:nth-child(5), .StarIcon[class*=active]:nth-child(5), .StarIcon[class*=hovered]:nth-child(5), .StarIcon:nth-child(5):hover {
   fill: #f1d045 !important;
 }

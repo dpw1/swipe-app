@@ -37,10 +37,7 @@ export default function EmailSignup() {
               <div className="response-message">
                 <i className="fas fa-envelope font-lg" />
                 <p className="font-md m-0">Check your email</p>
-                <p className="response">
-                  We sent you an email with a link to get started. You’ll be in
-                  your account in no time.
-                </p>
+                <p className="response">Please confirm the email.</p>
               </div>
             </div>
           </div>
