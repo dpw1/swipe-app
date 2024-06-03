@@ -41,6 +41,9 @@ body .btn {
     padding-top: 0;
   }
 }
+.faq .faq-item .card-header {
+  cursor: pointer;
+}
 @media (max-width: 749px) {
   .faq::before {
     z-index: 0 !important;
