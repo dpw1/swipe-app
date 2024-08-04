@@ -1,4 +1,5 @@
 import React from "react";
+import "./EmailSignup.scss";
 
 export default function EmailSignup() {
   return (
@@ -15,7 +16,7 @@ export default function EmailSignup() {
               </p>
             </div>
             <div className="mx-auto position-relative form-wrapper">
-              <form
+              {/* <form
                 action="https://5studios.net/themes/laapp/srv/register.php"
                 className="form text-center"
                 data-response-message-animation="slide-in-left"
@@ -33,11 +34,18 @@ export default function EmailSignup() {
                 <button type="submit" className="btn btn-lg btn-alternate">
                   Count me in!
                 </button>
-              </form>
+              </form> */}
+              <iframe
+                src="https://mailchi.mp/0957fbf4ae7b/waiting-list"
+                frameborder="0"></iframe>
               <div className="response-message">
-                <i className="fas fa-envelope font-lg" />
+                {/* <i className="fas fa-envelope font-lg" />
                 <p className="font-md m-0">Check your email</p>
-                <p className="response">Please confirm the email.</p>
+                <p className="response">Please confirm the email.</p> */}
+                <p style={{ textAlign: "center", display: "block" }}>
+                  We will only contact you about the app's release, no
+                  promotions. You can easily unsign at any time.
+                </p>
               </div>
             </div>
           </div>
