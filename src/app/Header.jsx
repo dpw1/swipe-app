@@ -9,10 +9,10 @@ export default function Header() {
   return (
     <nav className="Header navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
       <div className="container">
-        <button className="navbar-toggler" type="button">
+        {/* <button className="navbar-toggler" type="button">
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
-        </button>
+        </button> */}
         <a href="#main" className="navbar-brand">
           RateMyPicture
         </a>
