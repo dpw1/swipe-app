@@ -1,5 +1,6 @@
 import React from "react";
 import "./EmailSignup.scss";
+/* eslint-disable react/no-unescaped-entities */
 
 export default function EmailSignup() {
   return (
@@ -35,9 +36,9 @@ export default function EmailSignup() {
                   Count me in!
                 </button>
               </form> */}
-              {/* <iframe
+              <iframe
                 src="https://mailchi.mp/0957fbf4ae7b/waiting-list"
-                frameborder="0"></iframe> */}
+                frameborder="0"></iframe>
               <div className="response-message">
                 {/* <i className="fas fa-envelope font-lg" />
                 <p className="font-md m-0">Check your email</p>
