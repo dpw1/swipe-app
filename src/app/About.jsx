@@ -30,7 +30,7 @@ export default function About() {
         </div>
         <div className="container bring-to-front">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-8">
               <h1 className="extra-bold display-md-3 font-md">
                 More likes
                 <span className="d-block display-md-4 light">
@@ -61,12 +61,12 @@ export default function About() {
       </header>
       {/* Isometric Mockups */}
       <section className="isometric-mockups">
-        <div className="iphone light phone-big">
+        {/* <div className="iphone light phone-big">
           <div className="screen">
             <img src="img/screens/app/4.png" alt="..." />
           </div>
           <div className="notch" />
-        </div>
+        </div> */}
       </section>
     </section>
   );

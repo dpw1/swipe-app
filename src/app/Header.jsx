@@ -22,7 +22,7 @@ export default function Header() {
             </a>
           </div>
           <ul className="nav navbar-nav ml-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link scrollto" href="#trial">
                 My pictures
               </a>
@@ -31,7 +31,7 @@ export default function Header() {
               <Link className="nav-link scrollto" href="/app">
                 Vote
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <a className="nav-link scrollto" href="#trial">
