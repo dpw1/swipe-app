@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import Header from "./Header";
-import { getMedia } from "./utils";
+import { getMedia, scrollToSubscribe } from "./utils";
 
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(true);
@@ -110,6 +110,10 @@ export default function Hero() {
             <nav className="nav my-5">
               <a
                 href="#!"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSubscribe();
+                }}
                 className="btn btn-rounded btn-alternate mr-2 mr-md-5">
                 Join Now
                 <i className="fas fa-long-arrow-alt-right ml-2" />

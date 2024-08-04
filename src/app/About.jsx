@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./About.scss";
+import { scrollToSubscribe } from "./utils";
 
 export default function About() {
   return (
@@ -51,6 +52,10 @@ export default function About() {
               <nav className="nav mt-5">
                 <a
                   href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSubscribe();
+                  }}
                   className="nav-link mr-3 btn btn btn-rounded btn-contrast">
                   <i className="fas fa-heart mr-3" /> Join Now
                 </a>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Header.scss";
 import Link from "next/link";
+import { scrollToSubscribe } from "./utils";
 
 Link;
 
@@ -34,7 +35,13 @@ export default function Header() {
             </li> */}
 
             <li className="nav-item">
-              <a className="nav-link scrollto" href="#trial">
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSubscribe();
+                }}
+                className="nav-link scrollto"
+                href="#trial">
                 Sign Up
               </a>
             </li>

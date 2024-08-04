@@ -43,7 +43,7 @@ function isDevEnvironment() {
 }
 
 export function scrollToSubscribe() {
-  _scrollTo(``);
+  _scrollTo(`.EmailSignup`);
 }
 
 function _scrollTo(selector, yOffset = 0) {
