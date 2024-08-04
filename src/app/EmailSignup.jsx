@@ -35,9 +35,9 @@ export default function EmailSignup() {
                   Count me in!
                 </button>
               </form> */}
-              <iframe
+              {/* <iframe
                 src="https://mailchi.mp/0957fbf4ae7b/waiting-list"
-                frameborder="0"></iframe>
+                frameborder="0"></iframe> */}
               <div className="response-message">
                 {/* <i className="fas fa-envelope font-lg" />
                 <p className="font-md m-0">Check your email</p>

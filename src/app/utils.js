@@ -41,3 +41,14 @@ export function getMedia(path) {
 function isDevEnvironment() {
   return process.env.NODE_ENV === "development";
 }
+
+export function scrollToSubscribe() {
+  _scrollTo(``);
+}
+
+function _scrollTo(selector, yOffset = 0) {
+  const el = document.querySelector(selector);
+  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
