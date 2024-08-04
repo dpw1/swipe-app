@@ -2,9 +2,22 @@ import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import Header from "./Header";
 import { getMedia, scrollToSubscribe } from "./utils";
+import TextTransition, { presets } from "react-text-transition";
 
 export default function Hero() {
+  const words = ["Instagram", "Tinder", "Facebook", "Bumble"];
+
   const [isLoading, setIsLoading] = useState(true);
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      3000, // every 3 seconds
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
+
   return (
     <section className="Hero header alter2-header section" id="home">
       <Header></Header>
@@ -98,14 +111,24 @@ export default function Hero() {
               <span className="text-primary">Real</span> people, no AI
             </span>
             <h1 className="display-4 display-md-2 mt-3 text-h2">
-              <span className="bold">
-                Get feedback on your dating & social pictures
+              <span className="bold">Get feedback on your</span>
+              <br />
+              <span className="bold" style={{ display: "flex" }}>
+                <span
+                  className="animated-text"
+                  style={{ textDecoration: "underline" }}>
+                  <TextTransition springConfig={presets.wobbly}>
+                    {words[index % words.length]}
+                  </TextTransition>
+                </span>
+                <br />
+                <span style={{ marginLeft: 20 }}> pictures</span>
               </span>
             </h1>
 
             <p className="lead">
-              Receive kind-hearted, constructive feedback on your pictures from
-              real users around the world.
+              Receive kind-hearted, constructive feedback on your social &
+              dating pictures from real users around the world.
             </p>
             <nav className="nav my-5">
               <a

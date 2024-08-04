@@ -17,6 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-simple-star-rating": "^5.1.7",
+    "react-text-transition": "^3.1.0",
     "sass": "^1.72.0",
     "sharp": "^0.33.3"
   },

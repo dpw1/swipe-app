@@ -1,6 +1,56 @@
 @import "./variables.scss";
 
 .Features {
+  .subtitle {
+    margin-top: -20px;
+    margin-bottom: 40px;
+  }
+
+  .Features-tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .Features-tab {
+    color: $orange;
+    font-weight: bold;
+    max-width: 50%;
+    width: 100%;
+    position: relative;
+    transition: $basic-transition;
+
+    &--active {
+      text-decoration: underline;
+
+      &:after {
+        // content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 1px;
+        background: $orange;
+      }
+    }
+    &:hover {
+      transition: $basic-transition;
+      text-decoration: underline;
+    }
+    display: block;
+    text-align: center;
+  }
+  .Features-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    padding-bottom: 20px;
+    * {
+      color: $black;
+      font-weight: bold;
+    }
+  }
   .iphone {
     max-width: 70%;
     width: 100%;
