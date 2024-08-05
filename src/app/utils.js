@@ -1,3 +1,8 @@
+export const ROUTES = {
+  url: `/app`,
+  name: "appPage",
+};
+
 export function sortArrayAlphabetically(array) {
   const groupedWords = {};
   const emojiRegex = /\p{Emoji}/u;

@@ -105,7 +105,7 @@ export default function Features() {
               <div className="subtitle">
                 <p className="lead">
                   Going to a new dating app and not having the expected outcome
-                  can be quite frustrating. It no longer has to be that way.
+                  can be quite frustrating.
                 </p>
                 <p className="lead">
                   With <u>RateMyPicture</u> you can test your pictures to see

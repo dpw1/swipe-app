@@ -4,6 +4,22 @@
   //   background: red;
   font-size: 80px;
 
+  .Hero-animated-text-wrapper > * {
+    display: inline-block;
+  }
+
+  .Hero-top {
+    @media (max-width: $xs) {
+      margin-top: -40px;
+    }
+  }
+
+  .animated-text {
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: flex-start;
+  }
+
   .screen {
     overflow: hidden;
   }

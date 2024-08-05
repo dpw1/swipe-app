@@ -7,12 +7,23 @@ import TextTransition, { presets } from "react-text-transition";
 export default function Hero() {
   const words = ["Instagram", "Tinder", "Facebook", "Bumble"];
 
+  const [width, setWidth] = useState(`auto`);
   const [isLoading, setIsLoading] = useState(true);
   const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
     const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
+      () => {
+        setIndex((index) => index + 1);
+
+        setTimeout(() => {
+          const $el = document.querySelector(`.text-transition`);
+          $el.style.width = "auto";
+          const _width = $el.offsetWidth;
+          const width = `${_width}px`;
+          setWidth(width);
+        }, 50);
+      },
       3000, // every 3 seconds
     );
     return () => clearTimeout(intervalId);
@@ -105,30 +116,31 @@ export default function Hero() {
 
       <div className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-8 Hero-top">
             <span className="rounded-pill shadow-box bg-contrast text-dark bold py-2 px-4">
               <i className="far fa-lightbulb text-primary mr-2" />{" "}
               <span className="text-primary">Real</span> people, no AI
             </span>
             <h1 className="display-4 display-md-2 mt-3 text-h2">
-              <span className="bold">Get feedback on your</span>
+              <span className="bold">
+                Do people find you attractive on your
+              </span>
               <br />
-              <span className="bold" style={{ display: "flex" }}>
-                <span
-                  className="animated-text"
-                  style={{ textDecoration: "underline" }}>
-                  <TextTransition springConfig={presets.wobbly}>
+              <span className="bold Hero-animated-text-wrapper">
+                <span className="animated-text">
+                  <TextTransition
+                    style={{ textDecoration: "underline", width }}
+                    springConfig={presets.wobbly}>
                     {words[index % words.length]}
                   </TextTransition>
+                  <span style={{ marginLeft: 10 }}>pictures?</span>
                 </span>
-                <br />
-                <span style={{ marginLeft: 20 }}> pictures</span>
               </span>
             </h1>
 
             <p className="lead">
-              Receive kind-hearted, constructive feedback on your social &
-              dating pictures from real users around the world.
+              Receive kind-hearted, genuine feedback on your social & dating
+              pictures from real users around the world.
             </p>
             <nav className="nav my-5">
               <a
