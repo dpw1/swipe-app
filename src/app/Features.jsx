@@ -104,13 +104,13 @@ export default function Features() {
               </div>
               <div className="subtitle">
                 <p className="lead">
-                  Going to a new dating app and not having the expected outcome
-                  can be quite frustrating.
+                  When you upload your picture to <u>RateMyPicture</u>, people
+                  around the world will swipe left or right on it, just like in
+                  dating apps.
                 </p>
                 <p className="lead">
-                  With <u>RateMyPicture</u> you can test your pictures to see
-                  whether your targeted audience would swipe left or right. From
-                  there, you can pick your most right-swiped picture.
+                  This helps you understand how attractive you look in a given
+                  picture. Here is a breakdown of the process:
                 </p>
               </div>
               <ul className="list-unstyled">
@@ -142,7 +142,8 @@ export default function Features() {
                     <p className="m-0">
                       Sit back and wait as users from around the world swipe on
                       your picture. You'll be able to see how many right/left
-                      swipes you had as the results come in.
+                      swipes you had as well as any additional feedback users
+                      left to you.
                     </p>
                   </div>
                 </li>
