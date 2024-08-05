@@ -12,8 +12,7 @@ export default function EmailSignup() {
             <div className="section-heading text-center">
               <h2 className="heading-line">Join the waiting list</h2>
               <p className="lead text-alternate">
-                Excited? Enter your email for early access. We are releasing in
-                August 2024.
+                Enter your email to join our waiting list.
               </p>
             </div>
             <div className="mx-auto position-relative form-wrapper">
