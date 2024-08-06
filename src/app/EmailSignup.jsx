@@ -73,8 +73,6 @@ export default function EmailSignup() {
                       <div
                         aria-hidden="true"
                         style={{ position: "absolute", left: "-5000px" }}>
-                        /* real people should not fill this in and expect good
-                        things - do not remove this or risk form bot signups */
                         <input
                           type="text"
                           name="b_5996d3fb305483ac22ceb5ba2_4b2d64985c"
