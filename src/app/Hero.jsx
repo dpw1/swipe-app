@@ -24,7 +24,7 @@ export default function Hero() {
           setWidth(width);
         }, 50);
       },
-      3000, // every 3 seconds
+      2500, // every 3 seconds
     );
     return () => clearTimeout(intervalId);
   }, []);

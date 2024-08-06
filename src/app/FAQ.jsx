@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Is it free?",
     answer:
-      'RateMyPicture is free to use! For faster results, you can purchase credits. Additionally, if you\'d like to unlock the "age" and "location" filters, you can purchase the "unlock filters" option. Buying credits will automatically unlock these filters as well. By default, only the gender filter is available for free users.',
+      "RateMyPicture is free to use! For faster results, you can optionally purchase credits to have your pictures prioritized when being shown to the users.",
   },
 ];
 

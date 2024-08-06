@@ -6,3 +6,9 @@
 .EmailSignup .form-wrapper {
   width: 100%;
 }
+.EmailSignup .section-heading {
+  margin-bottom: 20px;
+}
+.EmailSignup #mc_embed_signup [name=EMAIL] {
+  margin-bottom: 10px;
+}
