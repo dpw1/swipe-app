@@ -73,6 +73,8 @@ export default function Home() {
 
               setUser(user);
 
+              console.log(`User data`, user);
+
               await supabase.auth.signInWithOAuth({
                 provider,
                 options: {
