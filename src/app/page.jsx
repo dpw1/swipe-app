@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Hero from "./Hero";
@@ -25,6 +25,8 @@ const lato = Lato({
 });
 
 export default function Home() {
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     console.log("home use effect");
 
@@ -52,21 +54,35 @@ export default function Home() {
       <div style={{ marginBottom: "100vh" }}>
         <p>Login</p>
 
-        <button
-          onClick={async () => {
-            console.log(`click`);
-            const { data, error } = await supabase.auth.signInWithOAuth({
-              provider: "facebook",
-            });
-            await supabase.auth.signInWithOAuth({
-              provider,
-              options: {
-                redirectTo: `https://ratemypicture.app/`,
-              },
-            });
-          }}>
-          Sign in
-        </button>
+        {user ? (
+          <div>
+            <p>Welcome, {user.email}!</p>
+            <button>Sign Out</button>
+          </div>
+        ) : (
+          <button
+            onClick={async () => {
+              console.log(`click`);
+              const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: "facebook",
+              });
+
+              if (error) {
+                alert("Something went wrong");
+              }
+
+              setUser(user);
+
+              await supabase.auth.signInWithOAuth({
+                provider,
+                options: {
+                  redirectTo: `https://ratemypicture.app/`,
+                },
+              });
+            }}>
+            Sign in with Facebook
+          </button>
+        )}
       </div>
       <Footer></Footer>
     </main>
