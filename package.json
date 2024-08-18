@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.1",
     "aos": "^3.0.0-beta.6",
     "country-flags-svg": "^2.0.0-beta.1",
     "hammerjs": "^2.0.8",
