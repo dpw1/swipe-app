@@ -27,8 +27,6 @@ export default function Home() {
   );
 
   useEffect(() => {
-    console.log("home use effect");
-
     (async () => {
       console.log("start");
       const AOS = await import("aos");
@@ -37,11 +35,12 @@ export default function Home() {
     })();
   }, []);
 
-  async function signInWithFacebook() {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: "facebook",
-    });
-  }
+  useEffect(() => {
+    (async () => {
+      const session = supabase.auth.session();
+      setFacebookUser(session?.user);
+    })();
+  }, []);
 
   return (
     <main className={lato.className}>
@@ -61,28 +60,37 @@ export default function Home() {
         ) : (
           <button
             onClick={async () => {
-              console.log(`click`);
-              const { error, session, user } =
-                await supabase.auth.signInWithOAuth({
-                  provider: "facebook",
-                  scopes: "email",
-                });
-
-              if (error) {
-                alert("Something went wrong");
-              }
-
-              setFacebookUser(user);
-
-              console.log(`User data`, user, session);
+              const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: "facebook",
+              });
 
               await supabase.auth.signInWithOAuth({
                 provider,
                 options: {
                   redirectTo: `https://ratemypicture.app/`,
-                  scopes: "email",
                 },
               });
+
+              return;
+              // const { error, session, user } =
+              //   await supabase.auth.signInWithOAuth({
+              //     provider: "facebook",
+              //   });
+
+              // if (error) {
+              //   alert("Something went wrong");
+              // }
+
+              // setFacebookUser(user);
+
+              // console.log(`User data`, user, session);
+
+              // await supabase.auth.signInWithOAuth({
+              //   provider,
+              //   options: {
+              //     redirectTo: `https://ratemypicture.app/`,
+              //   },
+              // });
             }}>
             Sign in with Facebook
           </button>
