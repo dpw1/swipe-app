@@ -36,10 +36,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const session = supabase.auth.session();
-      setFacebookUser(session?.user);
-    })();
+    (async () => {})();
   }, []);
 
   return (
@@ -62,12 +59,8 @@ export default function Home() {
             onClick={async () => {
               const { data, error } = await supabase.auth.signInWithOAuth({
                 provider: "facebook",
-              });
-
-              await supabase.auth.signInWithOAuth({
-                provider,
                 options: {
-                  redirectTo: `https://ratemypicture.app/`,
+                  redirectTo: `https://ratemypicture.app`,
                 },
               });
 
