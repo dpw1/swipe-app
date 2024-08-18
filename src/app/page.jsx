@@ -65,6 +65,7 @@ export default function Home() {
               const { error, session, user } =
                 await supabase.auth.signInWithOAuth({
                   provider: "facebook",
+                  scopes: "email",
                 });
 
               if (error) {
@@ -79,6 +80,7 @@ export default function Home() {
                 provider,
                 options: {
                   redirectTo: `https://ratemypicture.app/`,
+                  scopes: "email",
                 },
               });
             }}>
