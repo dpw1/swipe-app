@@ -113,8 +113,7 @@ export default function EmailSignup() {
                 <p className="font-md m-0">Check your email</p>
                 <p className="response">Please confirm the email.</p> */}
                 <p style={{ textAlign: "center", display: "block" }}>
-                  We will only contact you about the app's release, no
-                  promotions. You can unsubscribe at any time.
+                  No unwanted promotion. You can easily unsubscribe at any time.
                 </p>
               </div>
             </div>

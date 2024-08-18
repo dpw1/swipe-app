@@ -109,8 +109,8 @@ export default function Features() {
                   dating apps.
                 </p>
                 <p className="lead">
-                  This helps you understand how attractive you look in a given
-                  picture. Here is a breakdown of the process:
+                  This helps you understand how people perceive you in a given
+                  photo. Here is a breakdown of the process:
                 </p>
               </div>
               <ul className="list-unstyled">

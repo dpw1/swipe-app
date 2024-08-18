@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       {/* Footer */}
-      <footer className="site-footer section bg-dark text-contrast edge top-left">
+      <footer className="Footer site-footer section bg-dark text-contrast edge top-left">
         <div className="container py-3">
           {/* <div className="row gap-y text-center text-md-left">
             <div className="col-md-4 mr-auto">

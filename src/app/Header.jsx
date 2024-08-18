@@ -3,19 +3,26 @@ import "./Header.scss";
 import Link from "next/link";
 import { scrollToSubscribe } from "./utils";
 
-Link;
-
-export default function Header() {
+export default function Header(props) {
+  const { sticky } = props;
   return (
-    <nav className="Header navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
+    <nav
+      className={`
+    Header navbar navbar-expand-md main-nav navigation sidebar-left
+
+    ${sticky ? "fixed-top" : ""}
+    `}>
       <div className="container">
         {/* <button className="navbar-toggler" type="button">
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
         </button> */}
-        <a href="#main" className="navbar-brand">
+
+        <Link className="navbar-brand" href={"/"}>
+          {" "}
           RateMyPicture
-        </a>
+        </Link>
+
         <div className="collapse navbar-collapse" id="main-navbar">
           <div className="sidebar-brand">
             <a href="index.html">

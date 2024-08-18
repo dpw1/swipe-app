@@ -23,7 +23,7 @@ export default function SwipeApp() {
   };
 
   const SWIPE_DISTANCE_Y = -72;
-  const SWIPE_DISTANCE_X = 120;
+  const SWIPE_DISTANCE_X = 60;
 
   const POSITIVE_FEEDBACK_TEXT = `Remeber: your feedback is valuable.`;
   const NEGATIVE_FEEDBACK_TEXT = `Remeber: treat others as you'd want to be treated.`;
@@ -33,13 +33,13 @@ export default function SwipeApp() {
     "🥵 hot",
     "outfit",
     "😎 stylish",
-    "elegant",
+    "elegant ",
     "cool background",
-    "smile",
+    "😁 smile",
     "hair",
     "social",
     "eyes",
-    "well-groomed",
+    "💇 well-groomed",
     "look interesting",
     "height",
   ]);
@@ -87,8 +87,9 @@ export default function SwipeApp() {
       hammerTime.on("pan", function (ev) {
         el.classList.add("moving");
 
-        el.classList.toggle("nope", ev.deltaX < -120);
-        el.classList.toggle("like", ev.deltaX > 120);
+        console.log(ev.deltaX);
+        el.classList.toggle("nope", ev.deltaX < -SWIPE_DISTANCE_X);
+        el.classList.toggle("like", ev.deltaX > SWIPE_DISTANCE_X);
         el.classList.toggle(
           "super_like",
           (ev.deltaY < -72) & (Math.abs(ev.deltaX) < 80),
@@ -291,7 +292,7 @@ export default function SwipeApp() {
                                 <input
                                   key={e}
                                   type="checkbox"
-                                  class="chip grow swatch"
+                                  className="chip grow swatch"
                                   role="switch"
                                   value={`${e}`}
                                   aria-label={`${e}`}
@@ -310,7 +311,7 @@ export default function SwipeApp() {
                                 <input
                                   key={e}
                                   type="checkbox"
-                                  class="chip grow swatch"
+                                  className="chip grow swatch"
                                   role="switch"
                                   value={`${e}`}
                                   aria-label={`${e}`}
