@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Hero from "./Hero";
 import { Lato } from "next/font/google";
+import { useRouter } from "next/router"; // Assuming you're using Next.js for routing
 
 import About from "./About";
 import Features from "./Features";
@@ -25,6 +26,8 @@ export default function Home() {
     "https://kjsscbcikciebrzjgbcv.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtqc3NjYmNpa2NpZWJyempnYmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM2Mjk0MDAsImV4cCI6MjAzOTIwNTQwMH0.L-8T_MvyqvQcR1dfeTO1Td62SsSadM2qTkZjvkDO0Io",
   );
+  const router = useRouter();
+  const { code, next } = router.query; // Extract `code` and `next` from the URL
 
   useEffect(() => {
     console.log("home use effect");
@@ -36,6 +39,33 @@ export default function Home() {
       AOS.init();
     })();
   }, []);
+
+  useEffect(() => {
+    const handleOAuthCallback = async () => {
+      if (code) {
+        const supabase = createClient();
+        const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+        if (!error) {
+          const isLocalEnv = process.env.NODE_ENV === "development";
+          const redirectUrl = next ? next : "/";
+          const origin = window.location.origin;
+
+          if (isLocalEnv) {
+            router.push(`${origin}${redirectUrl}`);
+          } else {
+            const forwardedHost = window.location.hostname; // Get the current host
+            router.push(`https://${forwardedHost}${redirectUrl}`);
+          }
+        } else {
+          // Handle the error and redirect to an error page
+          router.push(`${window.location.origin}/auth/auth-code-error`);
+        }
+      }
+    };
+
+    handleOAuthCallback();
+  }, [code, next, router]);
 
   async function signInWithFacebook() {
     const { data, error } = await supabase.auth.signInWithOAuth({
