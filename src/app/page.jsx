@@ -25,7 +25,7 @@ const lato = Lato({
 });
 
 export default function Home() {
-  const [user, setUser] = useState(null);
+  const [facebookUser, setFacebookUser] = useState(null);
 
   useEffect(() => {
     console.log("home use effect");
@@ -54,7 +54,7 @@ export default function Home() {
       <div style={{ marginBottom: "100vh" }}>
         <p>Login</p>
 
-        {user ? (
+        {facebookUser ? (
           <div>
             <p>Welcome, {user.email}!</p>
             <button>Sign Out</button>
@@ -63,17 +63,18 @@ export default function Home() {
           <button
             onClick={async () => {
               console.log(`click`);
-              const { data, error } = await supabase.auth.signInWithOAuth({
-                provider: "facebook",
-              });
+              const { error, session, user } =
+                await supabase.auth.signInWithOAuth({
+                  provider: "facebook",
+                });
 
               if (error) {
                 alert("Something went wrong");
               }
 
-              setUser(user);
+              setFacebookUser(user);
 
-              console.log(`User data`, user);
+              console.log(`User data`, user, session);
 
               await supabase.auth.signInWithOAuth({
                 provider,
