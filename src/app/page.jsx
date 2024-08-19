@@ -59,31 +59,7 @@ export default function Home() {
             onClick={async () => {
               const { data, error } = await supabase.auth.signInWithOAuth({
                 provider: "facebook",
-                options: {
-                  redirectTo: `https://ratemypicture.app`,
-                },
               });
-
-              return;
-              // const { error, session, user } =
-              //   await supabase.auth.signInWithOAuth({
-              //     provider: "facebook",
-              //   });
-
-              // if (error) {
-              //   alert("Something went wrong");
-              // }
-
-              // setFacebookUser(user);
-
-              // console.log(`User data`, user, session);
-
-              // await supabase.auth.signInWithOAuth({
-              //   provider,
-              //   options: {
-              //     redirectTo: `https://ratemypicture.app/`,
-              //   },
-              // });
             }}>
             Sign in with Facebook
           </button>

@@ -42,6 +42,9 @@ body .btn {
 .Hero .Hero-animated-text-wrapper > * {
   display: inline-block;
 }
+.Hero .text-transition > * {
+  text-decoration: underline;
+}
 @media (max-width: 749px) {
   .Hero .Hero-top {
     margin-top: -40px;

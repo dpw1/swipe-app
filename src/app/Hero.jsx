@@ -6,11 +6,13 @@ import TextTransition, { presets } from "react-text-transition";
 
 export default function Hero() {
   const words = ["Instagram", "Tinder", "Facebook", "Bumble"];
+  let wordsWidth = [];
 
   const [width, setWidth] = useState(`auto`);
   const [isLoading, setIsLoading] = useState(true);
   const [index, setIndex] = React.useState(0);
 
+  function setWidthForWords() {}
   React.useEffect(() => {
     const intervalId = setInterval(
       () => {
@@ -21,6 +23,23 @@ export default function Hero() {
           $el.style.width = "auto";
           const _width = $el.offsetWidth;
           const width = `${_width}px`;
+          const word = $el.querySelector(`*:nth-child(1)`).textContent.trim();
+
+          const found = wordsWidth.find((e) => e.word === word);
+
+          if (!found) {
+            wordsWidth.push({ word, width });
+          } else {
+            $el.style.width = found.width;
+
+            return;
+          }
+
+          if (parseInt(_width) === 0) {
+            debugger;
+          } else {
+          }
+
           setWidth(width);
         }, 50);
       },
