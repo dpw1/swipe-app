@@ -4,34 +4,28 @@ import { useRouter } from "next/navigation";
 import "./SignUp.scss";
 
 import mainStore from "./store/mainStore";
-import { loginWithFacebook, storeTokenFromQueryString } from "./services/auth";
-import useAuthStore from "./store/authStore";
+import {
+  initializeAuth,
+  loginWithFacebook,
+  storeTokenFromQueryString,
+} from "./services/auth";
+import { useAuthStore } from "./store/authStore";
 
 export default function SignUp() {
   const router = useRouter();
 
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated());
-  const user = useAuthStore((state) => state.user);
-
-  useEffect(() => {
-    if (window.location.search) {
-      storeTokenFromQueryString(window.location.search);
-      router.replace("/");
-      debugger;
-    }
-  }, [router]);
-
-  const { count, increase, decrease, initialize } = mainStore();
+  const { isAuthenticated, user } = useAuthStore();
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    initialize(); // Initialize state from cookies
-    setIsInitialized(true); // Mark initialization complete
-  }, [initialize]);
+    const checkAuth = async () => {
+      await initializeAuth();
+      setIsInitialized(true);
+    };
 
-  if (!isInitialized) {
-    return; // Render a loading state until the store is initialized
-  }
+    checkAuth();
+  }, []);
+
   return (
     <div className="SignUp">
       <div className="container">
