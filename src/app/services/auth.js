@@ -49,6 +49,33 @@ export const initializeAuth = async () => {
   }
 };
 
+export const loginWithFacebook = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "facebook",
+  });
+
+  if (error) {
+    console.error("Login error:", error);
+    throw error;
+  }
+
+  if (data) {
+    // After successful login, the cookies should be set by Supabase
+    const accessToken = Cookies.get("sb-access-token");
+    const refreshToken = Cookies.get("sb-refresh-token");
+
+    if (accessToken) {
+      // Fetch user data and update Zustand store
+      const user = await fetchUserData();
+      useAuthStore.getState().setAuth({
+        provider: "facebook",
+        token: accessToken,
+        user,
+      });
+    }
+  }
+};
+
 export const logout = async () => {
   // Clear Supabase auth session
   const { error } = await supabase.auth.signOut();
