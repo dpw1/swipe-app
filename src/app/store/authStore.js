@@ -1,50 +1,55 @@
 import { create } from "zustand";
 import Cookies from "js-cookie";
+import { isObjectEmpty } from "../utils";
+import { supabase } from "../services/auth";
+import { createClient } from "@supabase/supabase-js";
 
-export const useAuthStore = create((set) => ({
+export const useAuthStore = create((set, get) => ({
   isAuthenticated: false,
   user: null,
   token: null,
-  initialize: async () => {
-    // Read cookies
-    const accessToken = Cookies.get("sb-access-token");
-    const refreshToken = Cookies.get("sb-refresh-token");
+  isUserLoggedIn: () => {
+    return new Promise(async (resolve, reject) => {
+      const supabase = createClient(
+        "https://kjsscbcikciebrzjgbcv.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtqc3NjYmNpa2NpZWJyempnYmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM2Mjk0MDAsImV4cCI6MjAzOTIwNTQwMH0.L-8T_MvyqvQcR1dfeTO1Td62SsSadM2qTkZjvkDO0Io",
+      );
 
-    if (accessToken) {
-      // Fetch user data
-      const user = await fetchUserData();
+      const user = get().user;
 
-      // Set the auth state
-      set({
-        isAuthenticated: true,
-        user,
-        token: accessToken,
-      });
-    } else {
-      // No access token, set auth state to logged out
-      set({
-        isAuthenticated: false,
-        user: null,
-        token: null,
-      });
-    }
+      if (user !== null) {
+        resolve(user);
+        return;
+      }
+      const { data, error } = await supabase.auth.getSession();
+
+      console.log("checking if logged in", data);
+
+      if (error || !data) {
+        resolve(false);
+        return;
+      }
+
+      get().setUser(data);
+      resolve({ user: data });
+    });
   },
-  setAuth: (auth) =>
+
+  setUser: (user = null) => {
+    if (!user || isObjectEmpty(user)) {
+      throw new Error(`No user set for "setUser"`);
+    }
+
     set({
       isAuthenticated: true,
-      user: auth.user,
-      token: auth.token,
-    }),
-  logout: () => {
-    // Remove cookies
-    Cookies.remove("sb-access-token");
-    Cookies.remove("sb-refresh-token");
+      user,
+    });
+  },
 
-    // Set auth state to logged out
+  logout: () => {
     set({
       isAuthenticated: false,
       user: null,
-      token: null,
     });
   },
 }));

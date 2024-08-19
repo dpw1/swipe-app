@@ -1,10 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import Link from "next/link";
 import { scrollToSubscribe } from "./utils";
+import { useAuthStore } from "./store/authStore";
+import { logout } from "./services/auth";
 
 export default function Header(props) {
   const { sticky } = props;
+
+  const user = useAuthStore((state) => state.user);
+
+  useEffect(() => {
+    console.log("user", user);
+  }, [user]);
 
   return (
     <nav
@@ -30,6 +38,7 @@ export default function Header(props) {
               <img src="img/logo.png" alt="Laapp Template" className="logo" />
             </a>
           </div>
+
           <ul className="nav navbar-nav ml-auto">
             {/* <li className="nav-item">
               <a className="nav-link scrollto" href="#trial">
@@ -41,18 +50,35 @@ export default function Header(props) {
                 Vote
               </Link>
             </li> */}
-
-            <li className="nav-item">
-              <Link
-                // onClick={(e) => {
-                //   e.preventDefault();
-                //   scrollToSubscribe();
-                // }}
-                className="nav-link"
-                href="/sign-up">
-                Sign Up
-              </Link>
-            </li>
+            {user ? (
+              <>
+                <li className="nav-item">
+                  <Link
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logout();
+                    }}
+                    className="nav-link"
+                    href="/sign-up">
+                    Log out
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link
+                    // onClick={(e) => {
+                    //   e.preventDefault();
+                    //   scrollToSubscribe();
+                    // }}
+                    className="nav-link"
+                    href="/sign-up">
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

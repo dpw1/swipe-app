@@ -33,6 +33,10 @@ export function sortArrayAlphabetically(array) {
   return result;
 }
 
+export function isObjectEmpty(obj) {
+  return Object.keys(obj).length === 0 && obj.constructor === Object;
+}
+
 export function getMedia(path) {
   if (isDevEnvironment()) {
     return path;

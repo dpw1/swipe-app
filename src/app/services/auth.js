@@ -9,44 +9,17 @@ const supabase = createClient(
 );
 
 export const fetchUserData = async () => {
-  // Check for the presence of the access token cookie
-  const accessToken = Cookies.get("sb-access-token");
+  return new Promise(async (resolve, reject) => {
+    const { data, error } = await supabase.auth.getSession();
 
-  if (!accessToken) {
-    console.warn("No access token found.");
-    return null;
-  }
+    if (error) {
+      throw new Error(`No supabase session found`);
+      resolve({ error });
+      return;
+    }
 
-  // Set the access token in Supabase client headers
-  supabase.auth.setAuth(accessToken);
-
-  // Fetch user data
-  const { data, error } = await supabase.auth.getUser();
-
-  if (error) {
-    console.error("Error fetching user data:", error);
-    return null;
-  }
-
-  return data.user; // Returns user object with details such as email
-};
-
-export const initializeAuth = async () => {
-  // Check for the presence of the access token cookie
-  const accessToken = Cookies.get("sb-access-token");
-
-  if (accessToken) {
-    // Fetch user data if access token is present
-    const user = await fetchUserData();
-    useAuthStore.getState().setAuth({
-      provider: "facebook",
-      token: accessToken,
-      user,
-    });
-  } else {
-    // No token found, set auth state to null
-    useAuthStore.getState().logout();
-  }
+    resolve(data);
+  });
 };
 
 export const loginWithFacebook = async () => {
@@ -58,31 +31,12 @@ export const loginWithFacebook = async () => {
     console.error("Login error:", error);
     throw error;
   }
-
-  if (data) {
-    // After successful login, the cookies should be set by Supabase
-    const accessToken = Cookies.get("sb-access-token");
-    const refreshToken = Cookies.get("sb-refresh-token");
-
-    if (accessToken) {
-      // Fetch user data and update Zustand store
-      const user = await fetchUserData();
-      useAuthStore.getState().setAuth({
-        provider: "facebook",
-        token: accessToken,
-        user,
-      });
-    }
-  }
 };
 
 export const logout = async () => {
-  // Clear Supabase auth session
   const { error } = await supabase.auth.signOut();
 
   if (!error) {
-    Cookies.remove("sb-access-token");
-    Cookies.remove("sb-refresh-token");
     useAuthStore.getState().logout();
   } else {
     console.error("Logout error:", error);

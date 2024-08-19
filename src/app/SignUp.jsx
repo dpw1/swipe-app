@@ -4,27 +4,16 @@ import { useRouter } from "next/navigation";
 import "./SignUp.scss";
 
 import mainStore from "./store/mainStore";
-import {
-  initializeAuth,
-  loginWithFacebook,
-  storeTokenFromQueryString,
-} from "./services/auth";
+import { loginWithFacebook, storeTokenFromQueryString } from "./services/auth";
 import { useAuthStore } from "./store/authStore";
 
 export default function SignUp() {
   const router = useRouter();
 
   const { isAuthenticated, user } = useAuthStore();
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(true);
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      await initializeAuth();
-      setIsInitialized(true);
-    };
-
-    checkAuth();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="SignUp">
