@@ -50,7 +50,6 @@ export default function Hero() {
 
   return (
     <section className="Hero header alter2-header section" id="home">
-      <Header></Header>
       <div className="shapes-container">
         {/* diagonal shapes */}
         <div

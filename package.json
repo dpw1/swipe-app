@@ -13,6 +13,7 @@
     "aos": "^3.0.0-beta.6",
     "country-flags-svg": "^2.0.0-beta.1",
     "hammerjs": "^2.0.8",
+    "js-cookie": "^3.0.5",
     "next": "14.1.4",
     "next-optimized-images": "^2.6.2",
     "react": "^18",
@@ -20,7 +21,8 @@
     "react-simple-star-rating": "^5.1.7",
     "react-text-transition": "^3.1.0",
     "sass": "^1.72.0",
-    "sharp": "^0.33.3"
+    "sharp": "^0.33.3",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "eslint": "^8",

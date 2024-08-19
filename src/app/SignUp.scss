@@ -1,0 +1,42 @@
+@import "./variables.scss";
+.SignUp {
+  height: 100vh;
+
+  .btn-fb {
+    display: inline-block;
+    border-radius: 1px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+    padding-top: 1.5px;
+    background: #4267b2;
+    background-color: #3b5998;
+    border: unset;
+  }
+  .btn-fb:hover {
+    box-shadow: 0 0 3px 3px rgba(59, 89, 152, 0.3);
+  }
+  .btn-fb .fb-content {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+  }
+  .btn-fb .fb-content .logo {
+    padding: 15px;
+    height: inherit;
+  }
+  .btn-fb .fb-content svg {
+    width: 18px;
+    height: 18px;
+  }
+  .btn-fb .fb-content p {
+    width: 100%;
+    line-height: 1;
+    letter-spacing: 0.21px;
+    text-align: center;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}

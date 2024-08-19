@@ -5,6 +5,7 @@ import { scrollToSubscribe } from "./utils";
 
 export default function Header(props) {
   const { sticky } = props;
+
   return (
     <nav
       className={`
@@ -42,15 +43,15 @@ export default function Header(props) {
             </li> */}
 
             <li className="nav-item">
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSubscribe();
-                }}
-                className="nav-link scrollto"
-                href="#trial">
+              <Link
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   scrollToSubscribe();
+                // }}
+                className="nav-link"
+                href="/sign-up">
                 Sign Up
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

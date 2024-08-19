@@ -11,6 +11,14 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
+  &:not([class*="fixed-top"]) {
+    position: relative !important;
+    display: block !important;
+    width: 100%;
+    top: unset !important;
+    z-index: 2;
+  }
+
   * {
     color: $text-color-dark !important;
   }

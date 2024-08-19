@@ -12,6 +12,7 @@ import EmailSignup from "./EmailSignup";
 import FAQ from "./FAQ";
 
 import { createClient } from "@supabase/supabase-js";
+import Header from "./Header";
 
 const lato = Lato({
   weight: ["400", "700", "900"],
@@ -41,6 +42,7 @@ export default function Home() {
 
   return (
     <main className={lato.className}>
+      <Header sticky={false}></Header>
       <Hero></Hero>
       <Features></Features>
       <About></About>
