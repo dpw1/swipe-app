@@ -36,8 +36,17 @@ export const useAuthStore = create((set, get) => ({
   },
 
   setUser: (user = null) => {
-    if (!user || isObjectEmpty(user)) {
-      throw new Error(`No user set for "setUser"`);
+    if (
+      !user ||
+      isObjectEmpty(user) ||
+      (user.hasOwnProperty("session") && user.session === null)
+    ) {
+      console.error(`No user passed for "set user".`);
+      set({
+        isAuthenticated: false,
+        user: null,
+      });
+      return;
     }
 
     set({

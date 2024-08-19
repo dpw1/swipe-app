@@ -16,7 +16,7 @@ export default function Header(props) {
 
   return (
     <nav
-      className={`
+      className={`f
     Header navbar navbar-expand-md main-nav navigation sidebar-left
 
     ${sticky ? "fixed-top" : ""}
@@ -52,6 +52,7 @@ export default function Header(props) {
             </li> */}
             {user ? (
               <>
+                <li className="nav-item nav-link">{user.session.user.email}</li>
                 <li className="nav-item">
                   <Link
                     onClick={(e) => {
