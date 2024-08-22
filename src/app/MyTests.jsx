@@ -1,12 +1,18 @@
 import React from "react";
 import "./MyTests.scss";
+import { ROUTES } from "./utils";
+import Link from "next/link";
 export default function MyTests() {
   return (
     <div className="MyTests">
       <div className="MyTests-container">
-        <div className="MyTests-left">left</div>
+        <div className="MyTests-left">
+          <span>Home</span>
+          <p>My Tests</p>
+          <p>Rate</p>
+        </div>
         <div className="MyTests-middle">
-          <button className="btn btn-lg btn-alternate">
+          <Link href={ROUTES.newTest} className="btn btn-lg btn-alternate">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -19,7 +25,7 @@ export default function MyTests() {
             </svg>
 
             <span>Create a test</span>
-          </button>
+          </Link>
 
           <div className="MyTests-recent">
             <b>Recent Tests</b>

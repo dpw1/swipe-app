@@ -15,7 +15,7 @@ export const useAuthStore = create((set, get) => ({
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtqc3NjYmNpa2NpZWJyempnYmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM2Mjk0MDAsImV4cCI6MjAzOTIwNTQwMH0.L-8T_MvyqvQcR1dfeTO1Td62SsSadM2qTkZjvkDO0Io",
       );
 
-      const user = get().user;
+      var user = get().user;
 
       if (user !== null) {
         resolve(user);
@@ -28,8 +28,10 @@ export const useAuthStore = create((set, get) => ({
         return;
       }
 
-      get().setUser(data);
-      resolve({ user: data });
+      var user = data.session.user;
+
+      get().setUser(user);
+      resolve({ ...user });
     });
   },
 

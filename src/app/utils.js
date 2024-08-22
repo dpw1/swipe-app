@@ -1,5 +1,7 @@
 export const ROUTES = {
   voteOnUsersPage: `/app`,
+  newTest: `/new-test`,
+  myTests: `/my-tests`,
 };
 
 export function sortArrayAlphabetically(array) {

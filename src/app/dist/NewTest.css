@@ -36,23 +36,23 @@ body .btn {
   }
 }
 
-.MyTests {
+.NewTest {
   background: #eaf6fc;
 }
-.MyTests .btn {
+.NewTest .btn {
   font-size: 14px;
   padding: 10px 15px;
 }
-.MyTests .MyTests-container {
+.NewTest .MyTests-container {
   max-width: 100%;
   padding: 0 20px;
   display: flex;
 }
-.MyTests .MyTests-left {
+.NewTest .MyTests-left {
   width: 64px;
   margin-top: 20px;
 }
-.MyTests .MyTests-middle {
+.NewTest .MyTests-middle {
   max-width: 274px;
   width: 100%;
   display: flex;
@@ -62,23 +62,23 @@ body .btn {
   padding-left: 20px;
   padding-top: 20px;
 }
-.MyTests .MyTests-middle .btn {
+.NewTest .MyTests-middle .btn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.MyTests .MyTests-right {
+.NewTest .MyTests-right {
   width: 100%;
   margin: 20px;
 }
-.MyTests .MyTests-right-container {
+.NewTest .MyTests-right-container {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   height: 50vh;
   border-radius: 8px;
   background-color: white;
   padding: 10px;
 }
-.MyTests .MyTests-recent {
+.NewTest .MyTests-recent {
   border-color: rgba(57, 76, 96, 0.15);
   border-radius: 8px;
   border-style: dashed;

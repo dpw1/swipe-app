@@ -22,6 +22,7 @@
     "react-text-transition": "^3.1.0",
     "sass": "^1.72.0",
     "sharp": "^0.33.3",
+    "uuid": "^10.0.0",
     "zustand": "^4.5.5"
   },
   "devDependencies": {

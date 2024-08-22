@@ -8,10 +8,15 @@ import { logout } from "./services/auth";
 export default function Header(props) {
   const { sticky } = props;
 
-  const user = useAuthStore((state) => state.user);
+  const { isUserLoggedIn } = useAuthStore();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log("user", user);
+    (async () => {
+      const _user = await isUserLoggedIn();
+
+      setUser(_user);
+    })();
   }, [user]);
 
   return (
@@ -52,9 +57,7 @@ export default function Header(props) {
             </li> */}
             {user ? (
               <>
-                <li className="nav-item nav-link">
-                  {user.session.user.email[0]}
-                </li>
+                {/* <li className="nav-item nav-link">{user.email[0]}</li> */}
 
                 <li className="nav-item nav-item--notifications">
                   <button className="BtnDefault">
