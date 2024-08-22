@@ -21998,7 +21998,6 @@ h6 {
   font-size: 6rem !important;
 }
 .display-2 {
-  
 }
 .display-3 {
   font-size: 4.5rem !important;
@@ -22011,7 +22010,6 @@ h6 {
     font-size: 6rem !important;
   }
   .display-sm-2 {
-    
   }
   .display-sm-3 {
     font-size: 4.5rem !important;
@@ -22264,7 +22262,6 @@ main {
     opacity 0.3s ease-in-out;
   text-decoration: none;
   letter-spacing: 1px;
-  padding: 1rem;
 }
 .navigation .nav-link i {
   display: inline-block;
@@ -24619,6 +24616,6 @@ hr {
   font-size: 16px;
 }
 
-.text-h1{
+.text-h1 {
   font-size: 40px;
 }

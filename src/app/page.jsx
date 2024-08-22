@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <main className={lato.className}>
-      <Header sticky={false}></Header>
+      <Header sticky={true}></Header>
       <Hero></Hero>
       <Features></Features>
       <About></About>

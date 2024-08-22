@@ -1,0 +1,58 @@
+@import "./variables.scss";
+.MyTests {
+  background: $blue-very-light;
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .MyTests-container {
+    max-width: 100%;
+    padding: 0 20px;
+    display: flex;
+  }
+
+  .MyTests-left {
+    width: 64px;
+    margin-top: 20px;
+  }
+
+  .MyTests-middle {
+    max-width: calc(254px + 20px);
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    border-left: 1px solid $border-color;
+    padding-left: 20px;
+    padding-top: 20px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .MyTests-right {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .MyTests-right-container {
+    box-shadow: $box-shadow-1;
+    height: 50vh;
+    border-radius: $button-border-radius;
+    background-color: white;
+    padding: 10px;
+  }
+
+  .MyTests-recent {
+    border-color: rgb(57 76 96 / 15%);
+    border-radius: 8px;
+    border-style: dashed;
+    border-width: 2px;
+    font-size: 12px;
+    text-align: center;
+  }
+}

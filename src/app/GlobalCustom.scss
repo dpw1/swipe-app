@@ -26,3 +26,51 @@ $fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
     }
   }
 }
+
+/* Buttons */
+
+.BtnDefault {
+  background-color: transparent;
+  outline: 0;
+  border: unset;
+  display: flex;
+  transition: $button-transition;
+  border-radius: $button-border-radius;
+  padding: 10px;
+  &:hover {
+    transition: $button-transition;
+    background-color: $gray-light;
+  }
+}
+
+.BtnFill {
+  outline: 0;
+  border: unset;
+  display: flex;
+  transition: $button-transition;
+  border-radius: $button-border-radius;
+  padding: 10px;
+}
+
+.btn {
+  letter-spacing: normal;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: unset !important;
+  svg + span {
+    margin-left: 10px;
+  }
+
+  &:active,
+  &:focus,
+  &:visited,
+  &:hover {
+    outline: unset !important;
+    border: unset !important ;
+  }
+}

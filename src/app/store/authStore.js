@@ -23,8 +23,6 @@ export const useAuthStore = create((set, get) => ({
       }
       const { data, error } = await supabase.auth.getSession();
 
-      console.log("checking if logged in", data);
-
       if (error || !data) {
         resolve(false);
         return;

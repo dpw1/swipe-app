@@ -1,17 +1,24 @@
 $green: #1be4a1;
 $white: #fffafa;
 $gray-very-light: #cccccc;
-$gray-light: #e1e5ea;
+$gray-light: #40576d12;
 $gray-medium: #a7bbc7;
 $red: #fd5068;
 $black: #27333e;
 $orange: #fb9744;
+$blue-very-light: #eaf6fc;
 
+$border-color: #4a2e7e26;
 $text-color-dark: $black;
 
 $image-border-radius: 10px;
+$button-border-radius: 8px;
 
+$box-shadow-1: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+  rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 $basic-transition: all 0.3s cubic-bezier(0.44, 0.79, 1, 0.59);
+$button-transition: background-color 0.1s linear, border-color 0.1s linear,
+  color 0.1s linear;
 
 /* Media query */
 

@@ -47,10 +47,23 @@ body .btn {
 }
 .Header:not([class*=fixed-top]) {
   position: relative !important;
-  display: block !important;
+  display: flex !important;
   width: 100%;
   top: unset !important;
   z-index: 2;
+  align-items: center;
+  justify-content: center;
+}
+.Header .nav-item + .nav-item {
+  margin-left: 5px;
+}
+.Header .nav-item {
+  display: flex;
+  align-items: center;
+}
+.Header .nav-item--notifications {
+  align-items: center;
+  justify-content: center;
 }
 .Header * {
   color: #27333e !important;
