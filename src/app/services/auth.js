@@ -33,6 +33,17 @@ export const loginWithFacebook = async () => {
   }
 };
 
+export const loginWithGoogle = async (response) => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+  });
+  if (error) {
+    alert("r");
+  }
+
+  console.log("logged", data);
+};
+
 export const logout = async () => {
   const { error } = await supabase.auth.signOut();
 

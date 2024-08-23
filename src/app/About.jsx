@@ -39,15 +39,19 @@ export default function About() {
                 </span>
               </h1>
               <p className="lead">
-                Struggling to score matches on dating apps or just not clicking
-                with folks? Understanding how strangers view your pics can be a
-                game-changer.
+                People always say your dating profile looks nice. By people I
+                mean your friends... right? The fear of being honest and hurting
+                feelings is real.
               </p>
 
               <p className="lead">
-                Even tiny tweaks can lead to big wins. Give your profile a
-                makeover and see it in a whole new light, making those first
-                impressions count!
+                Everyone, regardless of their looks, can have amazing pictures.
+                It's all repetition and receiving constructive feedback.
+              </p>
+              <p className="lead">
+                At <u>RateMyPicture</u> not only you have the opportunity to
+                help those people find their best pictures, but you'll also be
+                able to find your best pictures.
               </p>
               <nav className="nav mt-5">
                 <a

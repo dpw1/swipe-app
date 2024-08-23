@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Script from "next/script";
 
 import "./SignUp.scss";
 
 import mainStore from "./store/mainStore";
-import { loginWithFacebook, storeTokenFromQueryString } from "./services/auth";
+import {
+  loginWithFacebook,
+  loginWithGoogle,
+  storeTokenFromQueryString,
+} from "./services/auth";
 import { useAuthStore } from "./store/authStore";
 
 export default function SignUp() {
@@ -17,6 +22,35 @@ export default function SignUp() {
 
   return (
     <div className="SignUp">
+      <button
+        onClick={() => {
+          loginWithGoogle();
+        }}>
+        Login
+      </button>
+      {/* <Script
+        src="https://accounts.google.com/gsi/client"
+        strategy="lazyOnload"
+        onLoad={() =>
+          console.log(`script loaded correctly, window.FB has been populated`)
+        }
+      />
+      <div
+        id="g_id_onload"
+        data-client_id="560598066061-lhq9t1nasukdhnsio8igljlmln97e82o.apps.googleusercontent.com"
+        data-context="signup"
+        data-ux_mode="popup"
+        data-callback="loginWithGoogle"
+        data-auto_prompt="false"></div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="outline"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left"></div> */}
       <div className="container">
         {isInitialized === false ? (
           <div>Loading...</div>
@@ -29,7 +63,7 @@ export default function SignUp() {
               </div>
             ) : (
               <div>
-                <button className="btn-fb" onClick={loginWithFacebook}>
+                {/* <button className="btn-fb" onClick={loginWithFacebook}>
                   <div className="fb-content">
                     <div className="logo">
                       <svg
@@ -50,7 +84,7 @@ export default function SignUp() {
                     </div>
                     <p>Sign in with Facebook</p>
                   </div>
-                </button>
+                </button> */}
               </div>
             )}
           </>

@@ -108,7 +108,7 @@ export default function Hero() {
               <span className="bold Hero-animated-text-wrapper">
                 <span className="animated-text">
                   <div>
-                    <TextLoop duration={3000}>
+                    <TextLoop duration={1500}>
                       {words.map((e) => (
                         <span key={e}>
                           <u>{e}</u>

@@ -11,12 +11,13 @@ export default function HowItWorks() {
             <button className="btn btn-secondary">To be rated</button>
           </div>
           <p className="lead text-muted">
-            When you upload your picture to <u>RateMyPicture</u>, people around
-            the world will swipe left or right on it, just like in dating apps.
+            When you upload your picture to <u>RateMyPicture</u>, people can
+            swipe left or right on it based on whether they find you attactive
+            or not, just like in dating apps.
           </p>
           <p className="lead text-muted">
-            You can rate other people's pictures to gain free credits, or
-            purchase credits for faster results.
+            After swiping, a few questions are asked to help you understand why
+            you received that vote.
           </p>
         </div>
         <div className="row gap-y text-center text-md-left">

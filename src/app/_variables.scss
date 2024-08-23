@@ -28,25 +28,46 @@ $xs: 749px;
 $xxs: 600px;
 $xxxs: 400px;
 
+$font-size-xxs: 11px;
+$font-size-xs: 12px;
+$font-size-h6: 14px;
+$font-size-h1: 65px;
+$font-size-h2: 56px;
+
+$font-size-xxs-mobile: 10px;
+$font-size-xs-mobile: 11px;
+$font-size-h6-mobile: 14px;
+$font-size-h2-mobile: 45px;
+
 body {
   .text-xxs {
-    font-size: 11px;
+    font-size: $font-size-xxs;
+
+    @media (max-width: $xs) {
+      font-size: $font-size-xxs-mobile;
+    }
   }
   .text-xs {
-    font-size: 12px;
+    font-size: $font-size-xs;
+    @media (max-width: $xs) {
+      font-size: $font-size-xs-mobile;
+    }
   }
   .text-h6 {
-    font-size: 14px;
+    font-size: $font-size-h6;
+    @media (max-width: $xs) {
+      font-size: $font-size-h6-mobile;
+    }
   }
 
   .text-h1 {
-    font-size: 65px !important;
+    font-size: $font-size-h1 !important;
   }
 
-  .heading-line,
   .text-h2 {
+    font-size: $font-size-h2 !important;
     @media (max-width: $xs) {
-      font-size: calc(1.475rem + 2.7vw) !important;
+      font-size: $font-size-h2-mobile !important;
     }
   }
 

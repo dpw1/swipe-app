@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "./Footer.scss";
+import Link from "next/link";
+import { ROUTES } from "./utils";
 
 export default function Footer() {
   return (
@@ -70,12 +72,15 @@ export default function Footer() {
             </div>
           </div> */}
           <hr className="mt-5 op-5" />
-          <div className="row small">
-            <div className="col-md-4">
+          <div className="row small row--bottom">
+            <div className="col-md-4 row-item">
               <p className="mt-2 mb-0 text-center text-md-left">
                 © {new Date().getFullYear()} <a href="#">RateMyPicture.app</a>.
                 All Rights Reserved
               </p>
+            </div>
+            <div className="col-md-4 row-item">
+              <Link href={ROUTES.privacyPolicy}>Privacy Policy</Link>
             </div>
           </div>
         </div>

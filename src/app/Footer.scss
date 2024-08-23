@@ -1,3 +1,21 @@
 .Footer {
   margin-top: 200px;
+
+  .row--bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .row-item {
+      width: auto;
+
+      & > * {
+        margin-top: 0 !important;
+      }
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
 }

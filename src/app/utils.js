@@ -2,6 +2,7 @@ export const ROUTES = {
   voteOnUsersPage: `/app`,
   newTest: `/new-test`,
   myTests: `/my-tests`,
+  privacyPolicy: `/privacy-policy`,
 };
 
 export function sortArrayAlphabetically(array) {

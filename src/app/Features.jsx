@@ -109,12 +109,13 @@ export default function Features() {
               <div className="subtitle">
                 <p className="lead">
                   When you upload your picture to <u>RateMyPicture</u>, people
-                  around the world will swipe left or right on it, just like in
-                  dating apps.
+                  around the world can swipe left or right on it based on
+                  whether they find you attactive or not, just like in dating
+                  apps.
                 </p>
                 <p className="lead">
-                  This helps you understand how people perceive you in a given
-                  photo. Here is a breakdown of the process:
+                  After swiping, a few questions are asked to help you
+                  understand why that picture is perceived as attractive or not.
                 </p>
               </div>
               <ul className="list-unstyled">
