@@ -110,7 +110,9 @@ export default function Hero() {
                   <div>
                     <TextLoop duration={3000}>
                       {words.map((e) => (
-                        <span key={e}>{e}</span>
+                        <span key={e}>
+                          <u>{e}</u>
+                        </span>
                       ))}
                     </TextLoop>
                   </div>

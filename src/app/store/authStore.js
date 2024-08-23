@@ -23,11 +23,15 @@ export const useAuthStore = create((set, get) => ({
       }
       const { data, error } = await supabase.auth.getSession();
 
-      if (error || !data) {
+      if (
+        error ||
+        !data ||
+        !data.hasOwnProperty("session") ||
+        (data.hasOwnProperty("session") && data.session === null)
+      ) {
         resolve(false);
         return;
       }
-
       var user = data.session.user;
 
       get().setUser(user);
