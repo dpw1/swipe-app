@@ -14,6 +14,7 @@ import FAQ from "./FAQ";
 import Header from "./Header";
 import { createClient } from "@supabase/supabase-js";
 import { useAuthStore } from "./store/authStore";
+import HowItWorks from "./HowItWorks";
 
 const lato = Lato({
   weight: ["400", "700", "900"],
@@ -44,7 +45,7 @@ export default function Home() {
     <main className={lato.className}>
       <Header sticky={true}></Header>
       <Hero></Hero>
-      <Features></Features>
+      <HowItWorks></HowItWorks>
       <About></About>
       <FAQ></FAQ>
       <EmailSignup></EmailSignup>

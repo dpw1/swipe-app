@@ -2,51 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Hero.scss";
 import Header from "./Header";
 import { getMedia, scrollToSubscribe } from "./utils";
-import TextTransition, { presets } from "react-text-transition";
+import TextLoop from "./TextLoop";
 
 export default function Hero() {
   const words = ["Instagram", "Tinder", "Facebook", "Bumble"];
-  let wordsWidth = [];
 
-  const [width, setWidth] = useState(`auto`);
   const [isLoading, setIsLoading] = useState(true);
-  const [index, setIndex] = React.useState(0);
-
-  function setWidthForWords() {}
-  React.useEffect(() => {
-    const intervalId = setInterval(
-      () => {
-        setIndex((index) => index + 1);
-
-        setTimeout(() => {
-          const $el = document.querySelector(`.text-transition`);
-          $el.style.width = "auto";
-          const _width = $el.offsetWidth;
-          const width = `${_width}px`;
-          const word = $el.querySelector(`*:nth-child(1)`).textContent.trim();
-
-          const found = wordsWidth.find((e) => e.word === word);
-
-          if (!found) {
-            wordsWidth.push({ word, width });
-          } else {
-            $el.style.width = found.width;
-
-            return;
-          }
-
-          if (parseInt(_width) === 0) {
-            debugger;
-          } else {
-          }
-
-          setWidth(width);
-        }, 50);
-      },
-      2500, // every 3 seconds
-    );
-    return () => clearTimeout(intervalId);
-  }, []);
 
   return (
     <section className="Hero header alter2-header section" id="home">
@@ -146,11 +107,14 @@ export default function Hero() {
               <br />
               <span className="bold Hero-animated-text-wrapper">
                 <span className="animated-text">
-                  <TextTransition
-                    style={{ textDecoration: "underline", width }}
-                    springConfig={presets.wobbly}>
-                    {words[index % words.length]}
-                  </TextTransition>
+                  <div>
+                    <TextLoop duration={3000}>
+                      {words.map((e) => (
+                        <span key={e}>{e}</span>
+                      ))}
+                    </TextLoop>
+                  </div>
+
                   <span style={{ marginLeft: 10 }}>pictures?</span>
                 </span>
               </span>

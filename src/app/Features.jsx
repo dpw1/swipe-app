@@ -102,6 +102,10 @@ export default function Features() {
                 </span>
                 <h2 className="heading-line">How does it work?</h2>
               </div>
+              {/* <div className="Features-buttons">
+                <button className="btn btn-secondary active">To rate</button>
+                <button className="btn btn-secondary">To be rated</button>
+              </div> */}
               <div className="subtitle">
                 <p className="lead">
                   When you upload your picture to <u>RateMyPicture</u>, people

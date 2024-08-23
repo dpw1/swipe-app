@@ -36,9 +36,13 @@ body .btn {
   }
 }
 
-.Features .subtitle {
-  margin-top: -20px;
-  margin-bottom: 40px;
+.Features .Features-buttons {
+  display: flex;
+  margin-top: -30px;
+}
+.Features .Features-buttons > .btn {
+  width: 45%;
+  text-align: center;
 }
 .Features .Features-tabs {
   display: flex;

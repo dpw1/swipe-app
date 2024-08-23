@@ -2,8 +2,16 @@
 
 .Features {
   .subtitle {
-    margin-top: -20px;
-    margin-bottom: 40px;
+  }
+
+  .Features-buttons {
+    display: flex;
+    margin-top: -30px;
+
+    & > .btn {
+      width: 45%;
+      text-align: center;
+    }
   }
 
   .Features-tabs {
