@@ -6,13 +6,13 @@ export default function MyTests() {
   return (
     <div className="MyTests">
       <div className="MyTests-container">
-        <div className="MyTests-left">
+        <div className="MyTests-left text-xxs">
           <span>Home</span>
           <p>My Tests</p>
           <p>Rate</p>
         </div>
         <div className="MyTests-middle">
-          <Link href={ROUTES.newTest} className="btn btn-lg btn-alternate">
+          <Link href={ROUTES.newTest} className="btn btn-lg btn--app">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}

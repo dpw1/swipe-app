@@ -3,6 +3,7 @@ import "./NewTest.scss";
 
 import { v4 as uuidv4 } from "uuid";
 import { createClient } from "@supabase/supabase-js";
+import { getUserImages } from "./services/auth";
 
 export default function NewTest(props) {
   const supabase = createClient(
@@ -15,6 +16,7 @@ export default function NewTest(props) {
   const userId = user.id;
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [images, setImages] = useState(null); // images form database
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -38,7 +40,11 @@ export default function NewTest(props) {
   };
 
   useEffect(() => {
-    console.log("user", user);
+    (async () => {
+      const _images = await getUserImages(userId);
+
+      setImages(_images);
+    })();
   }, []);
 
   return (
@@ -82,6 +88,16 @@ export default function NewTest(props) {
             Upload
           </button>
         </form>
+      </div>
+
+      <div className="NewTest-previous">
+        <h2>Uploaded images</h2>
+        <div className="NewTest-previous-gallery">
+          {images &&
+            images.map((e) => {
+              return <img key={e} src={e} alt="" />;
+            })}
+        </div>
       </div>
     </div>
   );

@@ -41,7 +41,6 @@ export default function App() {
           <NewTest user={user}></NewTest>
         </>
       )}
-      dd
       {/* <Footer></Footer> */}
     </main>
   );

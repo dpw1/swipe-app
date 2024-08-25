@@ -29,7 +29,7 @@ $fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
 
 /* Buttons */
 
-.BtnDefault {
+.btn--default {
   background-color: transparent;
   outline: 0;
   border: unset;
@@ -43,13 +43,24 @@ $fillColorArray: #f17a45, #f19745, #f1a545, #f1b345, #f1d045;
   }
 }
 
-.BtnFill {
+.btn--fill {
   outline: 0;
   border: unset;
   display: flex;
   transition: $button-transition;
   border-radius: $button-border-radius;
   padding: 10px;
+}
+
+.btn--app {
+  transition: $button-transition;
+  background-color: $purple;
+  color: $white;
+  &:hover {
+    transition: $button-transition;
+    color: $white;
+    background-color: $purple-hover;
+  }
 }
 
 .btn {

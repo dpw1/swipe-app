@@ -1,20 +1,38 @@
+/* App colors */
 /* Media query */
 body .text-xxs {
   font-size: 11px;
 }
+@media (max-width: 749px) {
+  body .text-xxs {
+    font-size: 10px;
+  }
+}
 body .text-xs {
   font-size: 12px;
+}
+@media (max-width: 749px) {
+  body .text-xs {
+    font-size: 11px;
+  }
 }
 body .text-h6 {
   font-size: 14px;
 }
+@media (max-width: 749px) {
+  body .text-h6 {
+    font-size: 14px;
+  }
+}
 body .text-h1 {
   font-size: 65px !important;
 }
+body .text-h2 {
+  font-size: 56px !important;
+}
 @media (max-width: 749px) {
-  body .heading-line,
   body .text-h2 {
-    font-size: calc(1.475rem + 2.7vw) !important;
+    font-size: 45px !important;
   }
 }
 body .btn {
@@ -37,7 +55,7 @@ body .btn {
 }
 
 .MyTests {
-  background: #eaf6fc;
+  background: #f2f2fd;
 }
 .MyTests .btn {
   font-size: 14px;
@@ -49,8 +67,10 @@ body .btn {
   display: flex;
 }
 .MyTests .MyTests-left {
-  width: 64px;
+  min-width: 64px;
   margin-top: 20px;
+  text-align: center;
+  margin-left: -15px;
 }
 .MyTests .MyTests-middle {
   max-width: 274px;
@@ -70,6 +90,7 @@ body .btn {
 .MyTests .MyTests-right {
   width: 100%;
   margin: 20px;
+  margin-right: 0;
 }
 .MyTests .MyTests-right-container {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;

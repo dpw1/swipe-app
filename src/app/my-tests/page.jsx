@@ -27,17 +27,23 @@ export default function App() {
   }, []);
   return (
     <main className={lato.className}>
-      {!user ? (
+      <Header sticky={false} />
+
+      {user === null ? (
         <>
           <div className="container">
             <p>Loading</p>
           </div>
         </>
+      ) : user === false ? (
+        <>
+          <div className="container">
+            <p>User is not authenticated</p>
+          </div>
+        </>
       ) : (
         <>
-          {" "}
-          <Header sticky={false}></Header>
-          <MyTests></MyTests>
+          <MyTests />
         </>
       )}
 

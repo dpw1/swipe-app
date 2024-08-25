@@ -33,8 +33,8 @@ export const useAuthStore = create((set, get) => ({
         return;
       }
 
-      debugger;
       var user = data.session.user;
+      console.log("Logged in!", user);
 
       get().setUser(user);
       resolve({ ...user });

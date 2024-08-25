@@ -21,7 +21,7 @@ export default function Header(props) {
 
   return (
     <nav
-      className={`f
+      className={`
     Header navbar navbar-expand-md main-nav navigation sidebar-left
 
     ${sticky ? "fixed-top" : ""}
@@ -57,10 +57,10 @@ export default function Header(props) {
             </li> */}
             {user ? (
               <>
-                {/* <li className="nav-item nav-link">{user.email[0]}</li> */}
+                <li className="nav-item nav-link">{user.email[0]}</li>
 
                 <li className="nav-item nav-item--notifications">
-                  <button className="BtnDefault">
+                  <button className="btn--default">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={24}
@@ -86,7 +86,7 @@ export default function Header(props) {
                       e.preventDefault();
                       logout();
                     }}
-                    className="nav-link BtnDefault"
+                    className="nav-link btn--default"
                     href="/sign-up">
                     Log out
                   </Link>

@@ -1,6 +1,6 @@
 @import "./variables.scss";
 .MyTests {
-  background: $blue-very-light;
+  background: $purple-very-light;
 
   .btn {
     font-size: 14px;
@@ -14,8 +14,10 @@
   }
 
   .MyTests-left {
-    width: 64px;
+    min-width: 64px;
     margin-top: 20px;
+    text-align: center;
+    margin-left: -15px;
   }
 
   .MyTests-middle {
@@ -37,6 +39,7 @@
   .MyTests-right {
     width: 100%;
     margin: 20px;
+    margin-right: 0;
   }
 
   .MyTests-right-container {

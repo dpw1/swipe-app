@@ -2,7 +2,6 @@ import { createClient } from "@supabase/supabase-js";
 import Cookies from "js-cookie";
 import { useAuthStore } from "../store/authStore";
 
-// Initialize Supabase client
 const supabase = createClient(
   "https://kjsscbcikciebrzjgbcv.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtqc3NjYmNpa2NpZWJyempnYmN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM2Mjk0MDAsImV4cCI6MjAzOTIwNTQwMH0.L-8T_MvyqvQcR1dfeTO1Td62SsSadM2qTkZjvkDO0Io",
@@ -19,6 +18,42 @@ export const fetchUserData = async () => {
     }
 
     resolve(data);
+  });
+};
+
+export const getUserImages = async (id = null) => {
+  return new Promise(async (resolve, reject) => {
+    if (id === null) {
+      throw new Error(`no id for getUserImages`);
+    }
+    try {
+      const { data, error } = await supabase.storage.from("pictures").list(id, {
+        limit: 10,
+        offset: 0,
+        sortBy: { column: "updated_at", order: "desc" },
+      });
+
+      if (error) {
+        console.error("Error retrieving:", error);
+        return reject(error);
+      }
+
+      const fileNames = data.map((file) => file.name);
+
+      const urlPromises = fileNames.slice(0, 5).map((fileName) => {
+        const path = `${id}/${fileName}`;
+        return supabase.storage.from("pictures").createSignedUrl(path, 86400);
+      });
+
+      const urlResults = await Promise.all(urlPromises);
+
+      const fileUrls = urlResults.map((e) => e.data.signedUrl);
+
+      resolve(fileUrls);
+    } catch (error) {
+      console.error("Error fetching file URLs:", error);
+      reject(error);
+    }
   });
 };
 
@@ -49,6 +84,10 @@ export const logout = async () => {
 
   if (!error) {
     useAuthStore.getState().logout();
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   } else {
     console.error("Logout error:", error);
   }
