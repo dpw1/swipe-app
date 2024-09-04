@@ -1,20 +1,38 @@
+/* App colors */
 /* Media query */
 body .text-xxs {
   font-size: 11px;
 }
+@media (max-width: 749px) {
+  body .text-xxs {
+    font-size: 10px;
+  }
+}
 body .text-xs {
   font-size: 12px;
+}
+@media (max-width: 749px) {
+  body .text-xs {
+    font-size: 11px;
+  }
 }
 body .text-h6 {
   font-size: 14px;
 }
+@media (max-width: 749px) {
+  body .text-h6 {
+    font-size: 14px;
+  }
+}
 body .text-h1 {
   font-size: 65px !important;
 }
+body .text-h2 {
+  font-size: 56px !important;
+}
 @media (max-width: 749px) {
-  body .heading-line,
   body .text-h2 {
-    font-size: calc(1.475rem + 2.7vw) !important;
+    font-size: 45px !important;
   }
 }
 body .btn {
@@ -44,6 +62,7 @@ body .btn {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  /* Mobile menu */
 }
 .Header:not([class*=fixed-top]) {
   position: relative !important;
@@ -71,4 +90,47 @@ body .btn {
 .Header .container {
   padding-top: 0;
   padding-bottom: 0;
+}
+@media (max-width: 749px) {
+  .Header .navbar-toggler {
+    display: block;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .Header .hamburger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 5px;
+  }
+  .Header .mobile-menu {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .Header .mobile-menu.show {
+    transform: translateY(-6px);
+    opacity: 1;
+    visibility: visible;
+  }
+  .Header .mobile-menu .navbar-nav {
+    flex-direction: column;
+  }
+  .Header .mobile-menu .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}
+@media (min-width: 749px) {
+  .Header .mobile-menu {
+    display: none;
+  }
 }

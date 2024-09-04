@@ -1,0 +1,235 @@
+@import "./variables.scss";
+
+.ReviewItem {
+  width: 25%;
+  .subtitle {
+  }
+
+  .ReviewItem-picture {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    color: #eee;
+    box-shadow: 0 2px 7px 0 rgba(136, 136, 136, 0.7);
+    cursor: -webkit-grab;
+    cursor: grab;
+    transition: 300ms;
+  }
+
+  .ReviewItem-buttons {
+    display: flex;
+    margin-top: -30px;
+
+    & > .btn {
+      width: 45%;
+      text-align: center;
+    }
+  }
+
+  .ReviewItem-tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .ReviewItem-tab {
+    color: $orange;
+    font-weight: bold;
+    max-width: 50%;
+    width: 100%;
+    position: relative;
+    transition: $basic-transition;
+
+    &--active {
+      text-decoration: underline;
+
+      &:after {
+        // content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 1px;
+        background: $orange;
+      }
+    }
+    &:hover {
+      transition: $basic-transition;
+      text-decoration: underline;
+    }
+    display: block;
+    text-align: center;
+  }
+  .ReviewItem-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    padding-bottom: 20px;
+    * {
+      color: $black;
+      font-weight: bold;
+    }
+  }
+  .iphone {
+    max-width: 70%;
+    width: 100%;
+    min-width: 340px;
+
+    @media (max-width: 330px) {
+      transform: scale(0.8);
+      transform-origin: left;
+    }
+  }
+
+  .section-heading {
+    @media (max-width: $xs) {
+      text-align: center;
+    }
+  }
+  .media {
+    @media (max-width: $xs) {
+      text-align: center;
+    }
+  }
+
+  .screen {
+    padding: 0 10px;
+  }
+
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  .ReviewItem-item {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: $image-border-radius;
+  }
+
+  .ReviewItem-reviewed-title {
+    text-align: center;
+    display: flex;
+
+    span {
+      padding: 0px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & > span:nth-child(1) {
+      color: $white;
+      background: $black;
+      width: 50%;
+      border-top-left-radius: $image-border-radius;
+      border-bottom-left-radius: $image-border-radius;
+    }
+
+    & > span:nth-child(2) {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      width: 50%;
+      border-top-right-radius: $image-border-radius;
+      border-bottom-right-radius: $image-border-radius;
+    }
+  }
+
+  .ReviewItem-item + .ReviewItem-item {
+    margin-top: 10px;
+  }
+  .ReviewItem-item--like {
+    // background: #37bd74;
+  }
+
+  .ReviewItem-item--dislike {
+    // background: #f29b9b;
+  }
+
+  .ReviewItem-average-rating {
+    width: 28px !important;
+    pointer-events: none;
+    margin-left: 5px;
+  }
+
+  .ReviewItem-flag {
+    width: 40px;
+    border: unset;
+    box-shadow: unset !important;
+    margin-right: 10px;
+  }
+
+  .ReviewItem-info {
+  }
+
+  .ReviewItem-image {
+    max-width: 320px;
+    height: 320px;
+    object-fit: contain;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-end;
+    color: #eee;
+    box-shadow: 0 2px 7px 0 rgba(136, 136, 136, 0.7);
+
+    transition: 300ms;
+    width: 100%;
+  }
+
+  .ReviewItem-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ReviewItem-swipe {
+    width: 55px;
+    box-shadow: none !important;
+  }
+
+  .ReviewItem-rating {
+    margin-left: 10px;
+    width: -webkit-fill-available;
+
+    svg {
+      width: 27px;
+      pointer-events: none;
+
+      @media (max-width: $xxs) {
+        width: 19px;
+      }
+    }
+    &--1 {
+      svg:nth-child(2),
+      svg:nth-child(3),
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+
+    &--2 {
+      svg:nth-child(3),
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+
+    &--3 {
+      svg:nth-child(4),
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+    &--4 {
+      svg:nth-child(5) {
+        fill: $gray-very-light !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "./variables.scss";
+
+.ReviewItems {
+  display: flex;
+
+  .ReviewItem {
+    margin: 0 10px; // add 10px of space to the left and right of all elements
+
+    &:first-child,
+    &:nth-child(4n) {
+      margin-left: 0; // remove left margin from first and fourth elements
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0; // remove right margin from fourth elements
+    }
+  }
+}

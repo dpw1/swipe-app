@@ -24,11 +24,9 @@ export default function App() {
 
   return (
     <main className={lato.className}>
-      <Header></Header>
-
       <SignUp> </SignUp>
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </main>
   );
 }

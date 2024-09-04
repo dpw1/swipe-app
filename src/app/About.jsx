@@ -45,8 +45,8 @@ export default function About() {
               </p>
 
               <p className="lead">
-                Everyone, regardless of their looks, can have amazing pictures.
-                It's all repetition and receiving constructive feedback.
+                Everyone, regardless of their looks, can have attractive
+                pictures. It's all about trial and error.
               </p>
               <p className="lead">
                 At <u>RateMyPicture</u> not only you have the opportunity to

@@ -46,6 +46,7 @@ export default function Home() {
       <Header sticky={true}></Header>
       <Hero></Hero>
       <HowItWorks></HowItWorks>
+      <Features></Features>
       <About></About>
       <FAQ></FAQ>
       <EmailSignup></EmailSignup>

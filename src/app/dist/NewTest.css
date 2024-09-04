@@ -57,6 +57,21 @@ body .btn {
 .NewTest {
   background: #f2f2fd;
 }
+.NewTest .NewTest-gallery {
+  display: flex;
+}
+.NewTest .NewTest-item {
+  width: 25%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NewTest .NewTest-item img {
+  aspect-ratio: 4/5;
+  object-fit: contain;
+  max-width: 100%;
+}
 .NewTest .btn {
   font-size: 14px;
   padding: 10px 15px;

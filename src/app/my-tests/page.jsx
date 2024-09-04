@@ -43,7 +43,7 @@ export default function App() {
         </>
       ) : (
         <>
-          <MyTests />
+          <MyTests user={user} />
         </>
       )}
 

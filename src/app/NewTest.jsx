@@ -92,10 +92,14 @@ export default function NewTest(props) {
 
       <div className="NewTest-previous">
         <h2>Uploaded images</h2>
-        <div className="NewTest-previous-gallery">
+        <div className="NewTest-gallery">
           {images &&
             images.map((e) => {
-              return <img key={e} src={e} alt="" />;
+              return (
+                <div className="NewTest-item">
+                  <img key={e} src={e} alt="" />
+                </div>
+              );
             })}
         </div>
       </div>

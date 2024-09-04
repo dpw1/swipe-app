@@ -54,17 +54,12 @@ body .btn {
   }
 }
 
-.MyTests {
-  background: #f2f2fd;
-}
 .MyTests .btn {
   font-size: 14px;
   padding: 10px 15px;
 }
 .MyTests .MyTests-container {
-  max-width: 100%;
-  padding: 0 20px;
-  display: flex;
+  margin-top: 20px;
 }
 .MyTests .MyTests-left {
   min-width: 64px;
