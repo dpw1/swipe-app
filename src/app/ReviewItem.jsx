@@ -1,16 +1,20 @@
 import React from "react";
+import Link from "next/link";
 
 import "./ReviewItem.scss";
 import { getMedia } from "./utils";
+
 export default function ReviewItem(props) {
   const { item } = props;
 
   return (
     <div className="ReviewItem" key={item.id}>
       <div className="ReviewItem-reviewed">
-        <figure className="ReviewItem-reviewed-figure">
+        <Link
+          href={`/my-tests/${item.id}`}
+          className="ReviewItem-reviewed-figure">
           <img className="ReviewItem-image" src={item.picture} alt="" />
-        </figure>
+        </Link>
 
         <div className="ReviewItem-reviewed-data">
           <p className="ReviewItem-reviewed-title">

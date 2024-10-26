@@ -33,25 +33,25 @@ export default function About() {
           <div className="row">
             <div className="col-md-8">
               <h1 className="extra-bold display-md-3 font-md">
-                More likes
+                Improved connections
                 <span className="d-block display-md-4 light">
                   less time wasted
                 </span>
               </h1>
               <p className="lead">
-                People always say your dating profile looks nice. By people I
-                mean your friends... right? The fear of being honest and hurting
-                feelings is real.
+                Are you adventurous, laid-back, an outdoor lover, or a gamer? Do
+                your pictures capture that? Are you showing your best self in
+                grooming, angles, and style?
               </p>
 
               <p className="lead">
-                Everyone, regardless of their looks, can have attractive
-                pictures. It's all about trial and error.
+                Regardless of how someone looks, anyone can have attractive
+                pictures. It’s all about trial and error.
               </p>
               <p className="lead">
                 At <u>RateMyPicture</u> not only you have the opportunity to
                 help those people find their best pictures, but you'll also be
-                able to find your best pictures.
+                able to find your own best pictures.
               </p>
               <nav className="nav mt-5">
                 <a

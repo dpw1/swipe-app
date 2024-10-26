@@ -3,11 +3,13 @@ import Cookies from "js-cookie";
 import { isObjectEmpty } from "../utils";
 import { supabase } from "../services/auth";
 import { createClient } from "@supabase/supabase-js";
+import { DUMMY_PICTURES } from "../dummydata";
 
 export const useAuthStore = create((set, get) => ({
   isAuthenticated: false,
   user: null,
   token: null,
+  pictures: [] /* Pictures that the user has uploaded to be reviewed */,
   isUserLoggedIn: () => {
     return new Promise(async (resolve, reject) => {
       const supabase = createClient(
@@ -35,6 +37,7 @@ export const useAuthStore = create((set, get) => ({
 
       var user = data.session.user;
       console.log("Logged in!", user);
+      await get().getPictures(user.id);
 
       get().setUser(user);
       resolve({ ...user });
@@ -65,6 +68,17 @@ export const useAuthStore = create((set, get) => ({
     set({
       isAuthenticated: false,
       user: null,
+    });
+  },
+
+  getPictures: (id) => {
+    return new Promise(async (resolve, reject) => {
+      const pictures = DUMMY_PICTURES;
+
+      resolve(pictures);
+      set({
+        pictures,
+      });
     });
   },
 }));
